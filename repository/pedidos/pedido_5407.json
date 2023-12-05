@@ -1,0 +1,30 @@
+{
+    "id_pedido": 5407,
+    "data": {
+        "data": "31/08/2023",
+        "hora": " 09:04:25"
+    },
+    "nome": "anakin",
+    "telefone": "5521999289987",
+    "endereco": "conselho jedi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 2,
+            "nome": "Contra Filé Apertitivo",
+            "preco": 28.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Pastelzinho",
+            "preco": 16.9
+        }
+    ],
+    "totalPagar": 104.69999999999999
+}

@@ -1,0 +1,25 @@
+{
+    "id_pedido": 3791,
+    "data": {
+        "data": "30/08/2023",
+        "hora": " 22:07:53"
+    },
+    "nome": "Anakin",
+    "telefone": "5521999289987",
+    "endereco": "Consolelho",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Gozada no pé de uma gostosa",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        }
+    ],
+    "totalPagar": 45.9
+}

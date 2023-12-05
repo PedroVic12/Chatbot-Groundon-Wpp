@@ -1,0 +1,14 @@
+{
+    "id_pedido": 4105,
+    "data": {
+        "data": "20/09/2023",
+        "hora": " 16:19:39"
+    },
+    "nome": "pedro",
+    "telefone": "5521999289987",
+    "endereco": "!startIA",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "!startIA",
+    "pedido": [],
+    "totalPagar": 0
+}

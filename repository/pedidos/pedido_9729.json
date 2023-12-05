@@ -1,0 +1,25 @@
+{
+    "id_pedido": 9729,
+    "data": {
+        "data": "22/09/2023",
+        "hora": " 14:21:59"
+    },
+    "nome": "Peter Parker",
+    "telefone": "5521993176202",
+    "endereco": "Niteroi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        }
+    ],
+    "totalPagar": 45
+}

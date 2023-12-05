@@ -1,0 +1,30 @@
+{
+    "id_pedido": 2455,
+    "data": {
+        "data": "05/09/2023",
+        "hora": " 14:20:34"
+    },
+    "nome": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Carrao",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 2,
+            "nome": "Contra Filé Apertitivo",
+            "preco": 28.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Pastelzinho",
+            "preco": 16.9
+        }
+    ],
+    "totalPagar": 104.69999999999999
+}

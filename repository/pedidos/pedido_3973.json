@@ -1,0 +1,30 @@
+{
+    "id_pedido": 3973,
+    "data": {
+        "data": "23/08/2023",
+        "hora": " 16:54:22"
+    },
+    "nome": "Anakin",
+    "telefone": "5521999289987",
+    "endereco": "Conselho Jedi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Dinheiro",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        }
+    ],
+    "totalPagar": 83.8
+}

@@ -1,0 +1,30 @@
+{
+    "id_pedido": 9099,
+    "data": {
+        "data": "05/09/2023",
+        "hora": " 18:37:00"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Praia de Icaraí",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 2,
+            "nome": "Contra Filé Apertitivo",
+            "preco": 28.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Pastelzinho",
+            "preco": 16.9
+        }
+    ],
+    "totalPagar": 104.69999999999999
+}

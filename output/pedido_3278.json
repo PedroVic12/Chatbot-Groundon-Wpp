@@ -1,0 +1,27 @@
+{
+  "id": 3278,
+  "nome": "Anakin Skywalker Jedi",
+  "telefone": "123456789",
+  "carrinho": {
+    "itensPedido": [
+      {
+        "nome": "Misto Quente ",
+        "quantidade": 1,
+        "preco": 0
+      },
+      {
+        "nome": "Bauru ",
+        "quantidade": 2,
+        "preco": 0
+      },
+      {
+        "nome": "Big Mac ",
+        "quantidade": 1,
+        "preco": 0
+      }
+    ],
+    "totalPrecoPedido": 0
+  },
+  "forma_pagamento": "Cartão de Crédito",
+  "endereco_cliente": "Estrada do Mendanha, 123"
+}

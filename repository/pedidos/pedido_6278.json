@@ -1,0 +1,25 @@
+{
+    "id_pedido": 6278,
+    "data": {
+        "data": "23/08/2023",
+        "hora": " 22:30:39"
+    },
+    "nome": "Anakin Skywalker",
+    "telefone": "5521999289987",
+    "endereco": "Niteroi",
+    "complemento": "Ingá",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 2,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Pitaya",
+            "preco": 14
+        }
+    ],
+    "totalPagar": 48
+}

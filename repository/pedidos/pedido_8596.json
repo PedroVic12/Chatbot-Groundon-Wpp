@@ -1,0 +1,30 @@
+{
+    "id_pedido": 8596,
+    "data": {
+        "data": "25/09/2023",
+        "hora": " 20:10:14"
+    },
+    "nome": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Inga",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 1,
+            "nome": "Banana",
+            "preco": 2
+        },
+        {
+            "quantidade": 2,
+            "nome": "Granola",
+            "preco": 2
+        }
+    ],
+    "totalPagar": 20
+}

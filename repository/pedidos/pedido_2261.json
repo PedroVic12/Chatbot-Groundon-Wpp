@@ -1,0 +1,35 @@
+{
+    "id_pedido": 2261,
+    "data": {
+        "data": "25/08/2023",
+        "hora": " 19:01:40"
+    },
+    "nome": "Anakin Skywalker",
+    "telefone": "5521999289987",
+    "endereco": "Conselho jedi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Gozada no pezinho",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bolinho de Bacalhau",
+            "preco": 22.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Porção Salaminho",
+            "preco": 22.9
+        }
+    ],
+    "totalPagar": 100.69999999999999
+}

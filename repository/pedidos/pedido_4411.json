@@ -1,0 +1,45 @@
+{
+    "id_pedido": 4411,
+    "data": {
+        "data": "20/09/2023",
+        "hora": " 19:21:24"
+    },
+    "nome": "🤖 Antes de começarmos, por favor, *Digite Seu Nome*: Pedro Neto",
+    "telefone": "5521997091499",
+    "endereco": "Boa escolha 🤖 Antes de começarmos, por favor, *Digite Seu Nome*: Pedro Neto!  *Digite o seu endereço de entrega:*batata ribeiro,1994/640",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Misto Quente",
+            "preco": 12
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 1,
+            "nome": "Morango",
+            "preco": 2
+        },
+        {
+            "quantidade": 1,
+            "nome": "Proteinato",
+            "preco": 4
+        }
+    ],
+    "totalPagar": 70
+}

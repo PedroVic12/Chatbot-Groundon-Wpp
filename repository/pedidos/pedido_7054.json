@@ -1,0 +1,30 @@
+{
+    "id_pedido": 7054,
+    "data": {
+        "data": "28/09/2023",
+        "hora": " 12:48:22"
+    },
+    "nome": "pedro",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "inga",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Morango",
+            "preco": 2
+        }
+    ],
+    "totalPagar": 43.9
+}

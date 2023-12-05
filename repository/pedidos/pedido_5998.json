@@ -1,0 +1,25 @@
+{
+    "id_pedido": 5998,
+    "data": {
+        "data": "19/09/2023",
+        "hora": " 12:19:11"
+    },
+    "nome": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "1",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        }
+    ],
+    "totalPagar": 56.8
+}

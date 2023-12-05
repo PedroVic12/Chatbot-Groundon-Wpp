@@ -1,0 +1,30 @@
+{
+    "id_pedido": 7507,
+    "data": {
+        "data": "24/08/2023",
+        "hora": " 10:18:22"
+    },
+    "nome": "Mestre Skywalker",
+    "telefone": "5521999289987",
+    "endereco": "Camorim",
+    "complemento": "Niteroi",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        }
+    ],
+    "totalPagar": 70.8
+}

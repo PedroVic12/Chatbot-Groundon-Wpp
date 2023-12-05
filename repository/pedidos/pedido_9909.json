@@ -1,0 +1,25 @@
+{
+    "id_pedido": 9909,
+    "data": {
+        "data": "07/10/2023",
+        "hora": " 15:34:43"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Cg",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Filé de Frango",
+            "preco": 19
+        }
+    ],
+    "totalPagar": 55
+}

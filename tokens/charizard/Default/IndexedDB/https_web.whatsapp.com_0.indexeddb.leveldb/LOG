@@ -1,0 +1,8 @@
+2023/08/19-16:11:07.622 40583 Reusing MANIFEST /home/pedrov/Documentos/GitHub/Chatbot-Whatsapp/Chatbot - Delivary e Entregas/Chatbot Rayquaza x Groundon x Kyogre/Rayquaza/src/Chatbot Mega Groundon/tokens/charizard/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/08/19-16:11:07.623 40583 Recovering log #22
+2023/08/19-16:11:07.630 40583 Reusing old log /home/pedrov/Documentos/GitHub/Chatbot-Whatsapp/Chatbot - Delivary e Entregas/Chatbot Rayquaza x Groundon x Kyogre/Rayquaza/src/Chatbot Mega Groundon/tokens/charizard/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000022.log 
+2023/08/19-16:11:12.007 40583 Compacting 1@1 + 1@2 files
+2023/08/19-16:11:12.126 40583 Generated table #26@1: 25776 keys, 2193347 bytes
+2023/08/19-16:11:12.168 40583 Generated table #27@1: 23192 keys, 686000 bytes
+2023/08/19-16:11:12.169 40583 Compacted 1@1 + 1@2 files => 2879347 bytes
+2023/08/19-16:11:12.170 40583 compacted to: files[ 0 0 2 0 0 0 0 ]

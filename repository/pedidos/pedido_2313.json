@@ -1,0 +1,25 @@
+{
+    "id_pedido": 2313,
+    "data": {
+        "data": "04/10/2023",
+        "hora": " 13:37:49"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Camorim",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Bauru",
+            "preco": 30
+        }
+    ],
+    "totalPagar": 77
+}

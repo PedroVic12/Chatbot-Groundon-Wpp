@@ -1,0 +1,25 @@
+{
+    "id_pedido": 2126,
+    "data": {
+        "data": "24/08/2023",
+        "hora": " 12:10:37"
+    },
+    "nome": "Ue",
+    "telefone": "5521999289987",
+    "endereco": "Camorim",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "1",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        }
+    ],
+    "totalPagar": 41.9
+}

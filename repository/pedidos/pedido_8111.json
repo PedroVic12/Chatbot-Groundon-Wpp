@@ -1,0 +1,30 @@
+{
+    "id_pedido": 8111,
+    "data": {
+        "data": "30/08/2023",
+        "hora": " 20:59:34"
+    },
+    "nome": "Pwseo",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Sim",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Misto Quente",
+            "preco": 12
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Frango",
+            "preco": 19
+        }
+    ],
+    "totalPagar": 60
+}

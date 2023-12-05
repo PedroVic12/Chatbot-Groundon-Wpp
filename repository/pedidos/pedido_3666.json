@@ -1,0 +1,30 @@
+{
+    "id_pedido": 3666,
+    "data": {
+        "data": "28/08/2023",
+        "hora": " 18:25:20"
+    },
+    "nome": "pv",
+    "telefone": "5521999289987",
+    "endereco": "campo grande",
+    "complemento": "cond. girassol",
+    "formaPagamento": "Cartao",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        },
+        {
+            "quantidade": 2,
+            "nome": "Porção Salaminho",
+            "preco": 22.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bolinho de Bacalhau",
+            "preco": 22.9
+        }
+    ],
+    "totalPagar": 93.6
+}

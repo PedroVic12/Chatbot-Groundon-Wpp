@@ -1,0 +1,25 @@
+{
+    "id_pedido": 9542,
+    "data": {
+        "data": "19/09/2023",
+        "hora": " 12:41:52"
+    },
+    "nome": "Anakin",
+    "telefone": "5521999289987",
+    "endereco": "Conselho jedi",
+    "complemento": "Entregar pedido para o mestre Yoda",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Morango",
+            "preco": 2
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bolinho de Bacalhau",
+            "preco": 22.9
+        }
+    ],
+    "totalPagar": 24.9
+}

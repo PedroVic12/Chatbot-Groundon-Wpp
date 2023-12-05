@@ -1,0 +1,30 @@
+{
+    "id_pedido": 7289,
+    "data": {
+        "data": "23/08/2023",
+        "hora": " 16:21:52"
+    },
+    "nome": "pedro",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        }
+    ],
+    "totalPagar": 83.8
+}

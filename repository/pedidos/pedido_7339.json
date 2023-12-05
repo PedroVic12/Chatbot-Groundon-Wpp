@@ -1,0 +1,30 @@
+{
+    "id_pedido": 7339,
+    "data": {
+        "data": "27/09/2023",
+        "hora": " 13:04:15"
+    },
+    "nome": "Pedro v",
+    "telefone": "5521993176202",
+    "endereco": "Camorim",
+    "complemento": "Niteroi",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 2,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 1,
+            "nome": "Granola",
+            "preco": 2
+        },
+        {
+            "quantidade": 1,
+            "nome": "Gurjão a Milanesa - Peixe ou Frango",
+            "preco": 26.9
+        }
+    ],
+    "totalPagar": 56.9
+}

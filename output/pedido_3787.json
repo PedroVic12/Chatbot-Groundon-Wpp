@@ -1,0 +1,24 @@
+{
+	"id": 3979,
+	"nome": "Elon Musk",
+	"telefone": "21999289987",
+	"carrinho": {
+		"itensPedido": [
+			{
+				"nome": "Big Mac",
+				"quantidade": 2
+			},
+			{
+				"nome": "Coca Cola",
+				"quantidade": 1
+			},
+			{
+				"nome": "Acai",
+				"quantidade": 1
+			}
+		],
+		"totalPrecoPedido": 100
+	},
+	"forma_pagamento": "Dinheiro",
+	"endereco_cliente": "Niteroi"
+}

@@ -1,0 +1,30 @@
+{
+    "id_pedido": 7152,
+    "data": {
+        "data": "24/08/2023",
+        "hora": " 18:41:58"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Dinheiro",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        }
+    ],
+    "totalPagar": 70.8
+}

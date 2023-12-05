@@ -1,0 +1,25 @@
+{
+    "id_pedido": 9532,
+    "data": {
+        "data": "31/08/2023",
+        "hora": " 08:56:19"
+    },
+    "nome": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "sim",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Provolone a Milanesa",
+            "preco": 24.9
+        }
+    ],
+    "totalPagar": 45.9
+}

@@ -1,0 +1,40 @@
+{
+    "id_pedido": 9186,
+    "data": {
+        "data": "08/10/2023",
+        "hora": " 15:04:02"
+    },
+    "nome": "Antônio",
+    "telefone": "558582321012",
+    "endereco": "Rua toneleiro 223",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Dinheiro",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Queijo Quente com Banana",
+            "preco": 14
+        },
+        {
+            "quantidade": 1,
+            "nome": "Misto Quente",
+            "preco": 12
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Peito de Peru",
+            "preco": 18
+        }
+    ],
+    "totalPagar": 82
+}

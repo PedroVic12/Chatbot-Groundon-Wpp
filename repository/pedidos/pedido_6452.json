@@ -1,0 +1,45 @@
+{
+    "id_pedido": 6452,
+    "data": {
+        "data": "05/09/2023",
+        "hora": " 21:16:09"
+    },
+    "nome": "higor",
+    "telefone": "5521981547953",
+    "endereco": "Rua professora Isabel Monerat",
+    "complemento": "casa 2",
+    "formaPagamento": "1",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 1,
+            "nome": "Frango à Passarinho",
+            "preco": 28.9
+        },
+        {
+            "quantidade": 1,
+            "nome": "Morango",
+            "preco": 2
+        },
+        {
+            "quantidade": 1,
+            "nome": "Açai Tradicional",
+            "preco": 14
+        },
+        {
+            "quantidade": 1,
+            "nome": "Aipim Frito",
+            "preco": 14.9
+        }
+    ],
+    "totalPagar": 106.80000000000001
+}

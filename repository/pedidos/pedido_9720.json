@@ -1,0 +1,14 @@
+{
+    "id_pedido": 9720,
+    "data": {
+        "data": "04/12/2023",
+        "hora": " 18:14:14"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Quero reiniciar o pedido",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "pedido": [],
+    "totalPagar": 0
+}

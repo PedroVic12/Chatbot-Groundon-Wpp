@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "chabot-370717",
+  "private_key_id": "db4231f86949ccd497ef783c36c2c3b26ada87b0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDV3rSkV/pRcx0i\naEAVkR8j8bCYBhHhxUQseCWlt+K6I/IWG/RCWToeokb3yiw6lSHGBP+/aRU2rbx0\njF8IcUAUSt79vgx8YT7mwyrrEpNvtXkdKEiKXnsBT5mHFkV8WPMa86Jz5WyH1IaK\nkGWx8zyJQe3IttXmfYixmaI/bSe5ogWLcYxbC6FTLuxVtHfHcEcobbSk2gQTrzDZ\nueR7m4uxuQf99jO0CQgCCdVG0keWCOE64ofo449EAoEQjkjyBeKqVYOwkmMQhMNX\nBB/KnrnOXTQA8doOl5mAgY2j6QuyWde/sduYo1bnVDiI/TwfpY8NaoVYxvLESb37\nZgo2YePDAgMBAAECggEAXdWSiDCZgTbyZ3A5/bxoX0rhYjH3kokMej5UtjrR3T18\nL7sgFiQz3dDxNjKb6TAZW1pCI2cliZH8h143K+sUZFLdN5M0wzWfdXvXzr+dtHt4\nohRUj3EYouCbyas53W7hasfOVO8qCQZz6UOlesfvnYExpMijXLdjTBjOGOn5bfYd\nBxmrCl3yoht4YS2BuNg4+LDKNM4HKahxmnhOFNNYTVKrwRfdagBFN56nTfgk5BHf\nAQL6vlzAn2C4PM2mAcH4SHHb7MqbFMihejnQStdA28U2L3orXlZL9D/yDitWw+Y2\n5GzS9vayX+dN7Lx969ABaKTzEBoOyG6BhlNrXtSMsQKBgQDsJCy0EFfteXD5x+9h\nB1L3KemfD08GtRM83e8zBY+svC6bpdy224M+MQxHoGKBt5Ix6tSFSsYLz+KpQAbR\nC3S8YFv0ozV27GfHTAjyQdSYAvCvHKeuWxuyJ9wuHTp0Pe90OvggSYA5bX4zhn0S\nEWuk5NVW2332dNICTM7UkQ1FBQKBgQDn2w57M1ll9zXZp6k/7t/GnHEBgJnJd5zV\nBzljuhbLPeDzrGpXWNrWekHrxK0tzU83eBDBKveKt6bDoGZlHtEpnXL54jtJoQ/g\neKNe7EbnIb9xbGW1mxMci+AYaDQBWuiJ67gd4uDdNTtEatdkHnLG4O1lbhYfhtnz\n3vrETpjgJwKBgE5QpP7G2NJqTzyXwV0Vl79fCBr3cccQsKOkGxt5wa+Q7YgzVuLS\nJFGw5JiwqVrJ7dNeRUM7jDkIpexpzpjvyrRa5MRaiHW7a6OeJO1rRb1wZDA/OaFK\nmAHa1Fv615MLo2mR0Q6sMblaBdvCw6IFYwTZ26Mlwj3FeozGumWnAZadAoGBAMtx\nmdldC1q/es8LoSVqU40RBM/OqiLwA/uhJShux0V7fIIUjhMq8os0J9fbciI4fwQr\nJHh7XU6pK3mIq5CbY+liMNs3OdK3sxjCgofuR6DUKgo6lVyvQCvSSMbh2JA/1r/+\nyEXhKHKyHNlB7tH5Lbl48JYJ7Puo9mJZDC1o0hgNAoGBAOIsLFQ8Tt0XvYZpWWhv\no7m3VgqMzZkRqYFJxcnhnmK32pkVSqA4JL2vdtjwlxqyMChN7z763Lvv4oMQgqsl\nn1dZXyHsihvmcPDDluabZ1p0DOqvcMOdeyoozM27xOkb27K/X0SEarMHxreBAzTG\nK8JAana7ijPgjsK0ok2OxrjP\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-groundon@chabot-370717.iam.gserviceaccount.com",
+  "client_id": "110825079335773128323",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-groundon%40chabot-370717.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,0 +1,25 @@
+{
+    "id_pedido": 9775,
+    "data": {
+        "data": "08/10/2023",
+        "hora": " 15:39:21"
+    },
+    "nome": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Frango",
+            "preco": 19
+        }
+    ],
+    "totalPagar": 40
+}

@@ -1,0 +1,25 @@
+{
+    "id_pedido": 5170,
+    "data": {
+        "data": "05/09/2023",
+        "hora": " 20:22:06"
+    },
+    "nome": "Anakin",
+    "telefone": "5521999289987",
+    "endereco": "Conselho jedi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Pix",
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 2,
+            "nome": "Fritas com Queijo e Bacon",
+            "preco": 19.9
+        }
+    ],
+    "totalPagar": 56.8
+}
