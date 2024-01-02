@@ -1,0 +1,14 @@
+{
+    "id_pedido": 6220,
+    "data": {
+        "data": "06/12/2023",
+        "hora": " 13:16:18"
+    },
+    "nome": "ANAKIN",
+    "telefone": "5521999289987",
+    "status": "",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "totalPagar": 0
+}

@@ -1,0 +1,36 @@
+{
+    "id": 5631,
+    "nome_cliente": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Pix",
+    "status": "Em Processo",
+    "total_pagar": 77,
+    "data_pedido": {
+        "data": "07/12/2023",
+        "hora": " 12:14:53"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 1,
+            "nome": "Peito de Peru",
+            "preco": 18
+        },
+        {
+            "quantidade": 1,
+            "nome": "Misto Quente",
+            "preco": 12
+        }
+    ]
+}

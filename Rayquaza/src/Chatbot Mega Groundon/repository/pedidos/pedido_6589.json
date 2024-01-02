@@ -1,0 +1,15 @@
+{
+    "id": 6589,
+    "nome_cliente": "pv",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Cartão",
+    "status": "Em Processo",
+    "total_pagar": 0,
+    "data_pedido": {
+        "data": "18/12/2023",
+        "hora": " 09:15:01"
+    },
+    "carrinho": {}
+}

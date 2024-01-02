@@ -1,0 +1,26 @@
+{
+    "id": 5309,
+    "nome": "pv",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Cartão",
+    "status": "",
+    "total_pagar": 137,
+    "data_pedido": {
+        "data": "06/12/2023",
+        "hora": " 15:22:39"
+    },
+    "pedido": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 4,
+            "nome": "Bauru",
+            "preco": 30
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "id": 7604,
+    "nome_cliente": "Peter parker",
+    "telefone": "5521999289987",
+    "endereco": "Niteroi",
+    "complemento": "Ingá",
+    "forma_pagamento": "Cartão",
+    "status": "Em Processo",
+    "total_pagar": 105,
+    "data_pedido": {
+        "data": "07/12/2023",
+        "hora": " 12:38:11"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Frango",
+            "preco": 19
+        },
+        {
+            "quantidade": 1,
+            "nome": "Peito de Peru",
+            "preco": 18
+        }
+    ]
+}

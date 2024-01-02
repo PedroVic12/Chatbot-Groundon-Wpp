@@ -1,0 +1,41 @@
+{
+    "id": 9329,
+    "nome_cliente": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Pix",
+    "status": "Em Processo",
+    "total_pagar": 190,
+    "data_pedido": {
+        "data": "15/12/2023",
+        "hora": " 14:20:26"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 24
+        },
+        {
+            "quantidade": 2,
+            "nome": "Americano",
+            "preco": 24
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 42
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 42
+        },
+        {
+            "quantidade": 2,
+            "nome": "Açai Tradicional",
+            "preco": 17
+        }
+    ]
+}

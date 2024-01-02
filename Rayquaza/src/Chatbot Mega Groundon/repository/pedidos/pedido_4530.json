@@ -1,0 +1,31 @@
+{
+    "id": 4530,
+    "nome_cliente": "ANAKIN",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Cartão",
+    "status": "Em Processo",
+    "total_pagar": 79,
+    "data_pedido": {
+        "data": "07/12/2023",
+        "hora": " 11:16:09"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Queijo Quente com Banana",
+            "preco": 14
+        },
+        {
+            "quantidade": 4,
+            "nome": "Queijo Quente",
+            "preco": 12
+        }
+    ]
+}

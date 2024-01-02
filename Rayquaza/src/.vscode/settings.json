@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./Server Python/src/repository",
+        "./Server Python/src/repository"
+    ]
+}

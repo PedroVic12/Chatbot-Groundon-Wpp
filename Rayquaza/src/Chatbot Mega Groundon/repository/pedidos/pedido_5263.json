@@ -1,0 +1,13 @@
+{
+    "id_pedido": 5263,
+    "data": {
+        "data": "06/12/2023",
+        "hora": " 10:39:52"
+    },
+    "nome": "pv",
+    "telefone": "5521999289987",
+    "endereco": "niteroi",
+    "complemento": "Sem Complemento.",
+    "formaPagamento": "Cartão",
+    "totalPagar": 0
+}

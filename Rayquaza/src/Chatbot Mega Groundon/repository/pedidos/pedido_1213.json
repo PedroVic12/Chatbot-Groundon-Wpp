@@ -1,0 +1,25 @@
+{
+    "id_pedido": 1213,
+    "data": {
+        "data": "05/12/2023",
+        "hora": " 20:53:25"
+    },
+    "nome": "John Doe",
+    "telefone": "123-456-7890",
+    "endereco": "123 Main Street",
+    "complemento": "Apt 4B",
+    "formaPagamento": "Credit Card",
+    "pedido": [
+        {
+            "quantidade": 2,
+            "nome": "Item A",
+            "preco": 10
+        },
+        {
+            "quantidade": 1,
+            "nome": "Item B",
+            "preco": 20
+        }
+    ],
+    "totalPagar": 0
+}

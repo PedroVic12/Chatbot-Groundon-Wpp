@@ -1,0 +1,41 @@
+{
+    "id": 8715,
+    "nome_cliente": "Anakin",
+    "telefone": "5521999289987",
+    "endereco": "niteori",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Cartão",
+    "status": "Em Processo",
+    "total_pagar": 132,
+    "data_pedido": {
+        "data": "07/12/2023",
+        "hora": " 10:18:14"
+    },
+    "pedido": [
+        {
+            "quantidade": 3,
+            "nome": "Americano",
+            "preco": 17
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 30
+        },
+        {
+            "quantidade": 1,
+            "nome": "Queijo Quente",
+            "preco": 12
+        },
+        {
+            "quantidade": 1,
+            "nome": "Peito de Peru",
+            "preco": 18
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 21
+        }
+    ]
+}

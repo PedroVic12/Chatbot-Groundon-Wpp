@@ -1,0 +1,33 @@
+
+
+#Caminho do Arquivo: Certifique-se de atualizar o $INDEX_PATH para o caminho correto do arquivo index.js na sua máquina Windows.
+
+#Executando o PowerShell: Para executar o script PowerShell, salve-o com uma extensão .ps1 e execute-o em um terminal PowerShell. Pode ser necessário ajustar as políticas de execução do script no PowerShell para permitir a execução de scripts personalizados. Você pode fazer isso com o comando Set-ExecutionPolicy no PowerShell com privilégios de administrador.
+
+#Compatibilidade do PM2: Certifique-se de que o PM2 esteja instalado e funcionando corretamente no ambiente Windows.
+
+# PowerShell para permitir a execução de scripts, o que pode ser feito com o comando Set-ExecutionPolicy no PowerShell executado como administrador.
+
+$APP_NAME = "Chatbot-Groundon"
+$INDEX_PATH = "C:\caminho\para\o\projeto\Chatbot Mega Groundon\index.js"
+
+# Verifica se a aplicação está rodando
+$IS_RUNNING = pm2 describe $APP_NAME 2>&1 | Select-String "online"
+
+if ($null -eq $IS_RUNNING) {
+    Write-Host "Iniciando a aplicação $APP_NAME..."
+    
+    # Inicia a aplicação com o caminho completo para o arquivo index.js
+    pm2 start $INDEX_PATH --name $APP_NAME
+    
+    # Salva a aplicação para reiniciar automaticamente após reboots do sistema
+    pm2 save
+} else {
+    # Se estiver rodando, reinicia a aplicação
+    Write-Host "Reiniciando a aplicação $APP_NAME..."
+    pm2 restart $APP_NAME
+}
+
+# Limpa o console e mostra os logs
+Clear-Host
+pm2 logs $APP_NAME
