@@ -73,7 +73,7 @@ async function MAIN_ROBO_GROUNDON() {
 		return;
 	}
 
-	
+
 
 
 	const groundonIsOnline = await startStagesView(groundonController, backendController);

@@ -73,7 +73,9 @@ class StagesView extends GroundonView {
             // Se a resposta foi bem-sucedida, envie a resposta para o usuário
             if (resposta) {
 
-                this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`);
+                //                this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`);
+                this.enviarMensagem(message, resposta);
+
             } else {
                 this.enviarMensagem(message, 'Desculpe, não consegui entender sua mensagem.');
             }
