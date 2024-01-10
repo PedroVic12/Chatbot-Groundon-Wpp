@@ -115,7 +115,7 @@ class StagesView extends GroundonView {
 
         // Se a resposta foi bem-sucedida, envie a resposta para o usuário.
         if (resposta) {
-            this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`);
+            this.enviarMensagem(message, resposta);
         } else {
             this.enviarMensagem(message, 'Desculpe, não consegui entender sua mensagem.');
         }
@@ -352,16 +352,16 @@ class StagesView extends GroundonView {
 
                         } else {
                             this.delay(3000).then(
-                                await this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`)
+                                await this.enviarMensagem(message, resposta)
                             )
 
                             // enviar o menu se ele quer fazer o pedido
                             if (cleanIntent != 'pedido') {
-                                this.delay(60000).then(() => {
+                                this.delay(80000).then(() => {
                                     // Mostra o menu principal
-                                    this.enviarMensagem(message, "Aqui tem mais opções no que posso te ajudar :)")
-                                    let menu_principal_text = this.Widgets.getMenuText('Menu Principal', menu_principal)
-                                    this.enviarMensagem(message, menu_principal_text)
+                                    //this.enviarMensagem(message, "Posso ajudar em mais alguma coisa? ")
+                                    // let menu_principal_text = this.Widgets.getMenuText('Menu Principal', menu_principal)
+                                    //this.enviarMensagem(message, menu_principal_text)
                                 })
                             }
 
@@ -418,15 +418,17 @@ class StagesView extends GroundonView {
                                     console.log('Nao foi possivel salvar os produtos do pedido', error)
                                 }
                             }
+
+                            this.delay(3000).then(
+                                this.enviarMensagem(message, ` Boa escolha ${this.clientStates[phoneNumber].cliente.getNome()}!\n*Digite o seu endereço de entrega:*`)
+                            )
+
+
+                            this.clientStates[phoneNumber].stack.push(5);
                         }
 
 
-                        this.delay(3000).then(
-                            this.enviarMensagem(message, ` Boa escolha ${this.clientStates[phoneNumber].cliente.getNome()}!\n*Digite o seu endereço de entrega:*`)
-                        )
 
-
-                        this.clientStates[phoneNumber].stack.push(5);
                     }
 
 

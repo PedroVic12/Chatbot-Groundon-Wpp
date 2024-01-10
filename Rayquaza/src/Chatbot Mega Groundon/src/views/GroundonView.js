@@ -201,7 +201,7 @@ class GroundonView extends Groundon {
 	}
 
 
-	//!Cardapio Digiral
+	//!Cardapio Digital
 	async sendLinkCardapioDigital(message, _LINK) {
 		const MAX_ATTEMPTS = 3;
 		const ATTEMPT_INTERVAL = 7000; // 7 segundos
