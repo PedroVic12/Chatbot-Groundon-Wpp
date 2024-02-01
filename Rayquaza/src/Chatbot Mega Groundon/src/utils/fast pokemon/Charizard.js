@@ -1,5 +1,4 @@
-// Suporta ES6
-// import { create, Whatsapp } from '@wppconnect-team/wppconnect';
+
 const wppconnect = require('@wppconnect-team/wppconnect');
 
 wppconnect

@@ -17,7 +17,6 @@ class MewTwo {
     constructor() {
         this.initializeProperties();
         this.initializeNLP();
-
     }
 
     initializeProperties() {

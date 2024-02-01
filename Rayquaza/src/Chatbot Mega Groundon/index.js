@@ -4,11 +4,6 @@ const StagesView = require('./src/views/StagesView');
 
 
 
-//! TEMPO DE CONEXÃO COM O WPP = 20 SEGUNDOS, depois disso rodar o servidor Rayquaza
-
-
-//?npm install venom-bot@5.0.7      
-//? venom-bot/dist/controllers/browser.js -> na funcao launchOptions -> comentar o parâmetro headless:options.headless
 
 async function initializeWhatsApp(groundonController) {
 	try {
