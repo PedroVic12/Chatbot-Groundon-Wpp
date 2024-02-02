@@ -289,6 +289,20 @@ class GroundonView extends Groundon {
 			console.error('\n\nErro ao enviar mensagem: ', error);
 		}
 	}
+	async enviarMensagemBaseadaNoEstado(pedido) {
+		// Aqui você adicionaria a lógica para enviar uma mensagem específica baseada no estado do pedido
+		switch (pedido.status) {
+			case 'Entrega':
+				console.log(`Notificando cliente sobre entrega do pedido ${pedido.id}`);
+				// Adicione sua lógica para enviar mensagem
+				break;
+			case 'Concluido':
+				console.log(`Notificando cliente sobre conclusão do pedido ${pedido.id}`);
+				// Adicione sua lógica para enviar mensagem
+				break;
+			// Adicione mais casos conforme necessário
+		}
+	}
 
 	getLastMessage(message) {
 		try {

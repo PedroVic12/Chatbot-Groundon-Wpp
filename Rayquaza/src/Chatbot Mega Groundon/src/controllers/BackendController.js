@@ -4,6 +4,7 @@ const axios = require('axios')
 const GroundonController = require('./GroundonController')
 const net = require('net');
 
+let pedidosAntigos = {};
 
 
 class BackendController extends GroundonController {
@@ -133,12 +134,12 @@ class BackendController extends GroundonController {
     setupRoutes() {
         this.app.use(express.json());
 
-        // Rota para verificar o status do servidor
+        //! Rota para verificar o status do servidor
         this.app.get('/', (req, res) => {
-            res.send('Tudo certo! O servidor está em execução.');
+            res.send('Tudo certo! O backend do Groundon está em execução.');
         });
 
-        // Rota para receber o link do Cardapio Digital
+        //! Rota para receber o link do Cardapio Digital
         const linkSalvo = null; // Variável para armazenar o link recebido
 
         this.app.post(
@@ -166,6 +167,35 @@ class BackendController extends GroundonController {
                 res.status(404).json({ message: 'Nenhum link foi recebido ainda.' });
             }
         });
+
+        async function verificarPedidosAtualizados() {
+            try {
+                const response = await this.app.get("https://rayquaza-citta-server.onrender.com/pedidos/");
+                const pedidosNovos = response.data;
+
+                pedidosNovos.forEach((pedido) => {
+                    // Considerando que cada pedido tem um ID único
+                    let idPedido = pedido.id;
+
+                    // Verifica se o estado do pedido mudou de "Producao" para outro estado
+                    if (pedidosAntigos[idPedido] && pedidosAntigos[idPedido].status === 'Producao' && pedido.status !== 'Producao') {
+                        console.log(`Pedido ${idPedido} mudou de estado: ${pedido.status}`);
+
+                        // Envia mensagem baseada no novo estado do pedido
+                        enviarMensagemBaseadaNoEstado(pedido);
+                    }
+                });
+
+                // Atualiza o registro de pedidos antigos para comparações futuras
+                pedidosAntigos = {};
+                pedidosNovos.forEach(pedido => {
+                    pedidosAntigos[pedido.id] = pedido;
+                });
+            } catch (error) {
+                console.error('Erro ao verificar mudança de estado dos pedidos:', error);
+            }
+        }
+        //TODO VERIFICAÇÃO A CADA 5 MIN ->  setInterval(verificarPedidosAtualizados, 300000); 
 
 
         // Rota de enviar mensagem por HTTP
@@ -335,15 +365,6 @@ class BackendController extends GroundonController {
             });
     }
 
-    async enviarListaRequest(to, title, subTitle, description, menu, listObject) {
-        // Certifique-se de que as variáveis estejam definidas e contenham os valores esperados
-        if (!to || !title || !subTitle || !description || !menu || !listObject) {
-            throw new Error('Parâmetros ausentes ou inválidos.');
-        }
-
-        // Realize o envio da lista utilizando this.whatsapp.sendListMenu
-        return this.whatsapp.sendListMenu(to, title, subTitle, description, menu, listObject);
-    }
 
     //! Iniciar Servidor
 
