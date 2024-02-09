@@ -5,6 +5,7 @@ const GroundonController = require('./GroundonController')
 const net = require('net');
 
 let pedidosAntigos = {};
+let ultimoStatus = {};
 
 
 class BackendController extends GroundonController {
@@ -168,6 +169,8 @@ class BackendController extends GroundonController {
             }
         });
 
+        //! Rota para atualizar pedidos no Kyogre
+
         async function verificarPedidosAtualizados() {
             try {
                 const response = await this.app.get("https://rayquaza-citta-server.onrender.com/pedidos/");
@@ -196,7 +199,39 @@ class BackendController extends GroundonController {
             }
         }
         //TODO VERIFICAÇÃO A CADA 5 MIN ->  setInterval(verificarPedidosAtualizados, 300000); 
+        async function verificarStatusPedidos() {
+            try {
+                const response = await this.app.get("https://rayquaza-citta-server.onrender.com/pedidos/");
+                const pedidos = response.data;
 
+                for (const pedido of pedidos) {
+                    const { id, status } = pedido;
+
+                    // Se o status mudou desde a última verificação
+                    if (ultimoStatus[id] && ultimoStatus[id] !== status) {
+                        console.log(`Pedido ${id} mudou de status para: ${status}`);
+
+                        // Mensagem personalizada para cada status
+                        switch (status) {
+                            case 'Producao':
+                                console.log(`Pedido ${id} está em produção.`);
+                                break;
+                            case 'Entrega':
+                                return `Pedido  ${id} está a caminho.`
+                                break;
+                            case 'Concluido':
+                                return `Pedido ${id} foi entregue.`
+                                break;
+                        }
+                    }
+
+                    // Atualiza o último status conhecido para este pedido
+                    ultimoStatus[id] = status;
+                }
+            } catch (error) {
+                console.error('Erro ao verificar status dos pedidos:', error);
+            }
+        }
 
         // Rota de enviar mensagem por HTTP
         this.app.post(

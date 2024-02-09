@@ -534,7 +534,7 @@ class StagesView extends GroundonView {
 
                     }
 
-                    //!PEDIDO EVNIADO PARA COZINHA
+                    //!PEDIDO ENVIADO PARA COZINHA
                     else if (numero_estagio === 8) {
                         console.log(`\nEstágio ${numero_estagio}:`, message.body);
                         let mudou = false
@@ -542,7 +542,12 @@ class StagesView extends GroundonView {
 
                         const confirmacao = this.getLastMessage(message)
 
-                        this.enviarMensagem(message, `*Obrigado, ${this.clientStates[phoneNumber].cliente.getNome()}*!\nSeu pedido esta sendo preparado e volto quando ele estiver sendo enviado para entrega!`)
+                        this.enviarMensagem(message, `*Obrigado, ${this.clientStates[phoneNumber].cliente.getNome()}*!\nSeu pedido foi enviado para cozinha e aguardo a confirmação!`)
+
+
+                        this.delay(4000).then(
+                            this.enviarMensagem(message, "Seu pedido foi confirmado e está sendo preparado.\nCaso precise modificar ou passar mais alguma informação para o atendente, ligue para (21)2222-2222 ")
+                        )
 
                         // No final do estágio 8, antes de mudar para o próximo estágio:
                         try {
@@ -550,12 +555,19 @@ class StagesView extends GroundonView {
                         } catch (error) {
                             console.log('Erro ao salvar conversa em CSV', error);
                         }
+                        this.clientStates[phoneNumber].stack.push(9);
 
                     }
 
                     //!PEDIDO PRONTO E ENVIADO PARA ENTREGA
                     else if (numero_estagio === 9) {
                         console.log(`\nEstágio ${numero_estagio}:`, message.body);
+
+
+                        let state = await this.backendController.verificarStatusPedidos()
+                        this.enviarMensagem(message, state)
+
+
                         this.enviarMensagem(message, 'O.O opa, Seu pedido está sendo preparado, caso precise modificar ou passar mais alguma informação para o atendente, ligue para (21)2222-2222.');
 
                         // Processa a entrada usando MewTwo
@@ -566,7 +578,7 @@ class StagesView extends GroundonView {
                         if (cleanIntent === 'estagio9') {
                             this.enviarMensagem(message, resposta);
                         } else {
-                            this.enviarMensagem(message, 'Seu pedido está sendo preparado, caso precise modificar ou passar mais alguma informação para o atendente, ligue para (21)2222-2222.');
+                            this.enviarMensagem(message, `Vamos verificando o status do pedido ${this.clientStates[phoneNumber].getId()} de ${this.clientStates[phoneNumber].cliente.getNome()}!`);
                         }
                     }
 
