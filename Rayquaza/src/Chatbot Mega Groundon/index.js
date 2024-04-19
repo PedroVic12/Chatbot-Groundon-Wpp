@@ -2,7 +2,7 @@ const GroundonController = require('./src/controllers/GroundonController');
 const BackendController = require('./src/controllers/BackendController');
 const StagesView = require('./src/views/StagesView');
 
-
+//novo numero groundon -> 988377364
 
 
 async function initializeWhatsApp(groundonController) {
