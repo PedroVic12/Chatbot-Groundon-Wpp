@@ -16,6 +16,7 @@ const Estagio3 = require('./Stages/Estagio3');
 const cliente = new Cliente()
 
 
+
 /*
 TODO 
 
@@ -29,7 +30,7 @@ Mas mesmo cada loja tendo um número tem que ter um “você está fora da área
 
 
 class StagesView extends GroundonView {
-    constructor(whatsapp, groundonController, backendController) {
+    constructor(whatsapp, groundonController, backendController, model) {
         super(whatsapp, groundonController, backendController);
         //this.estagio1 = new Stage1()
         this.estagio2 = new Estagio2()
@@ -42,7 +43,11 @@ class StagesView extends GroundonView {
 
         this.dailyOrderCount = {}; // Armazena a contagem diária de pedidos por número de telefone
 
+        this.GENAI = model
+
+
     }
+
 
     incrementOrderCount(phoneNumber) {
         if (!this.dailyOrderCount[phoneNumber]) {
@@ -68,13 +73,13 @@ class StagesView extends GroundonView {
 
             const cleanIntent = resposta_intent.intent.trim().replace(/"/g, '');
             const resposta = this.mewTwo.getResponseForIntent(cleanIntent);
-            console.log(`Debug: ${resposta} | ${resposta_intent} `)
+            //console.log(`Debug: ${resposta} | ${resposta_intent} `)
 
             // Se a resposta foi bem-sucedida, envie a resposta para o usuário
             if (resposta) {
 
-                //                this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`);
-                this.enviarMensagem(message, resposta);
+                this.enviarMensagem(message, `Resp. Mewtwo: ${resposta}`);
+                //this.enviarMensagem(message, resposta);
 
             } else {
                 this.enviarMensagem(message, 'Desculpe, não consegui entender sua mensagem.');
@@ -115,13 +120,25 @@ class StagesView extends GroundonView {
 
         // Se a resposta foi bem-sucedida, envie a resposta para o usuário.
         if (resposta) {
-            this.enviarMensagem(message, resposta);
-        } else {
-            this.enviarMensagem(message, 'Desculpe, não consegui entender sua mensagem.');
+            return { cleanIntent, resposta }
         }
 
-        // Adicione qualquer outra lógica necessária para tratar a resposta do MewTwo.
     };
+
+    async genaiResponde(num_stage, message) {
+        try {
+            const chat = await this.GENAI.runChatBot();
+            let mensagemGemini = await this.GENAI.sendMsg(chat, `${message.body}`)
+            console.log(mensagemGemini);
+
+            if (num_stage > 2) {
+                return mensagemGemini;
+            }
+        } catch (error) {
+            console.error('Erro ao processar o gemini:', error);
+
+        }
+    }
 
 
     resetEstagio(message, num_stage, phone) {
@@ -146,6 +163,7 @@ class StagesView extends GroundonView {
         const menu_formaPagamento = this.Widgets.menuPagamento;
         let ID_PEDIDO = ''
         let KYOGRE_LINK_ID = ''
+
 
         //!EVENTO DE ESPERAR MENSAGENS DO WHATSAPP
         this.whatsapp.onMessage(async (message) => {
@@ -181,8 +199,10 @@ class StagesView extends GroundonView {
 
             //!Configurações Backend
             this.restartChatbot()
+
+            //todo outra func global
             try {
-                this.resetEstagio(message, numero_estagio, pnhoneNumber) // Função que reseta os estagios
+                this.resetEstagio(message, numero_estagio, phoneNumber) // Função que reseta os estagios
 
             } catch (error) {
                 console.log('nao vai dar para voltar de estagio')
@@ -212,8 +232,7 @@ class StagesView extends GroundonView {
                 } else {
                     // ... [existing logic to process message with the standard chatbot]
 
-                    //this.mewtwoRespondeMensagem(message);
-
+                    let msgGemini = await this.genaiResponde(numero_estagio, message) // ia generativa
 
                     //! ===================== Estágio 1 - Apresentação =====================
                     if (numero_estagio === 1) {
@@ -312,26 +331,35 @@ class StagesView extends GroundonView {
                         console.log(`\n\n\nEstágio ${numero_estagio}:`, message.body);
 
                         let cardapioEnviado = false;
+
+
+                        //nlp functions
                         let intent_escolhida;
                         const selectedOption = this.Widgets.getSelectedOption(menu_principal, message.body);
 
                         if (selectedOption) {
                             intent_escolhida = selectedOption.button.text.slice(3);
-                            this.enviarMensagem(message, `Voce escolheu a opção *${intent_escolhida}*`)
+                            await this.enviarMensagem(message, `Voce escolheu a opção *${intent_escolhida}*`)
                         } else {
                             intent_escolhida = this.getLastMessage(message)
                         }
 
-                        // Processa a entrada usando MewTwo
                         const resposta_intent = await this.mewTwo.processIntent(intent_escolhida);
+                        //let cleanIntent, resposta = await this.mewtwoProcessa(message)
                         const cleanIntent = resposta_intent.intent.trim().replace(/"/g, '');
-                        const resposta = this.mewTwo.getResponseForIntent(cleanIntent);
 
+                        try {
+                            const resposta = await this.mewTwo.getResponseForIntent(cleanIntent);
+                            await this.enviarMensagem(message, resposta)
+                        } catch (error) {
+                            console.log("erro ao mewtwo responder", error)
+                        }
 
+                        // mandando cardapio
                         if (cleanIntent === 'pedido') {
                             this.enviarMensagem(message, resposta);
 
-                            let cardapioEnviado = false
+                            cardapioEnviado = false
 
                             new Promise(async (resolve, reject) => {
                                 try {
@@ -351,18 +379,15 @@ class StagesView extends GroundonView {
                             });
 
                         } else {
-                            this.delay(3000).then(
-                                await this.enviarMensagem(message, resposta)
-                            )
+
 
                             // enviar o menu se ele quer fazer o pedido
                             if (cleanIntent != 'pedido') {
-                                this.delay(80000).then(() => {
-                                    // Mostra o menu principal
-                                    //this.enviarMensagem(message, "Posso ajudar em mais alguma coisa? ")
-                                    // let menu_principal_text = this.Widgets.getMenuText('Menu Principal', menu_principal)
-                                    //this.enviarMensagem(message, menu_principal_text)
-                                })
+                                // this.delay(60000).then(() => {
+                                //     this.enviarMensagem(message, "Posso ajudar em mais alguma coisa? ")
+                                // })
+                                await this.enviarMensagem(message, msgGemini)
+
                             }
 
                         }

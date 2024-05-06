@@ -1,6 +1,8 @@
 const GroundonController = require('./src/controllers/GroundonController');
 const BackendController = require('./src/controllers/BackendController');
 const StagesView = require('./src/views/StagesView');
+const GenaiAssistente = require("./src/models/IA Models/Genai/genai_cardapio")
+
 
 //novo numero groundon -> 988377364
 
@@ -34,16 +36,21 @@ async function initializeBackend(backendController) {
 
 
 async function startStagesView(groundonController, backendController) {
+	const MODEL_NAME = "gemini-1.5-pro-latest";
+	const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
+	const model = new GenaiAssistente(API_KEY, MODEL_NAME)
+
 	const stagesView = new StagesView(
 		groundonController.whatsapp,
 		groundonController,
-		backendController
+		backendController,
+		model
 	);
 
 	try {
 		await stagesView.start_chatbot_Groundon();
 		await groundonController.delay(3000).then(
-			console.log('\nChatbot Groundon iniciado')
+			console.log('\nChatbot Groundon iniciado no zap zap')
 		);
 		return true;
 	} catch (error) {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME="Chatbot-Groundon"
-INDEX_PATH="/home/pedrov/Documentos/GitHub/Chatbot-Whatsapp/Chatbot - Delivary e Entregas/Chatbot Rayquaza x Groundon x Kyogre/Rayquaza/src/Chatbot Mega Groundon/index.js"
+INDEX_PATH="/home/pedrov/Documentos/GitHub/Chatbot-Groundon-Wpp/Rayquaza/src/Chatbot Mega Groundon/index.js"
 
 # Verifica se a aplicação está rodando
 IS_RUNNING=$(pm2 describe $APP_NAME 2>/dev/null | grep "online")

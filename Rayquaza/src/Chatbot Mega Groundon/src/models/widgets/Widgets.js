@@ -23,16 +23,11 @@ class Widgets {
 
     // Menu de Confirmação
     this.menuConfirmacao = [
-      { button: { text: '✅ Sim', hide: true }, type: 'message' },
-      { button: { text: '❌ Não', hide: true }, type: 'message' }
+      { button: { text: '✅ Sim', hide: true }, type: 'true' },
+      { button: { text: '❌ Não', hide: true }, type: 'false' }
     ];
 
-    // Exemplo de estrutura para outros menus
-    this.menuExemplo = [
-      { button: { text: '🌟 Opção 1', hide: true }, type: 'message' },
-      { button: { text: '🔥 Opção 2', hide: true }, type: 'message' },
-      { button: { text: '🎉 Opção 3', hide: true }, type: 'message' }
-    ];
+
 
     // Menu de Reclamações
     this.menuReclamacoes = [

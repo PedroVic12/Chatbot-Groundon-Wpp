@@ -286,7 +286,7 @@ class GroundonView extends Groundon {
 			const result = await this.whatsapp.sendText(message.from, texto);
 			//console.log('\n\nResultado da Mensagem: ', result);
 		} catch (error) {
-			console.error('\n\nErro ao enviar mensagem: ', error);
+			console.error('\n\nErro ao enviar mensagem com wpp connect: ', error);
 		}
 	}
 	async enviarMensagemBaseadaNoEstado(pedido) {
