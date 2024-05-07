@@ -10,9 +10,9 @@ class mewtwoRepository {
             intents: {
                 saudacao: ['boa noite', 'boa tarde', 'bom dia', 'alo', 'olá', 'oi', 'hello'],
 
-                despedida: ['obrigado e tchau', 'te vejo mais tarde', 'aguardo o pedido'],
+                despedida: ['obrigado e tchau', 'te vejo mais tarde',],
 
-                pedido: ['fazer pedido', 'quero ver o menu', 'me mostre o cardapio', 'gostaria de pedir a promoção', 'fazer um pedido', 'fazer um pedido de delivery', 'fazer um delivery', 'entregar comida', 'quero uma pizza', 'quero um hambúrguer'],
+                pedido: ["cardapio", "promoção hoje", 'fazer pedido', 'quero ver o menu', 'me mostre o cardapio', 'gostaria de pedir a promoção', 'fazer um pedido', 'fazer um pedido de delivery', 'fazer um delivery', 'entregar comida', 'quero uma pizza', 'quero um hambúrguer'],
 
                 estagio1: ['iniciar', 'começar', 'olá de novo'],
                 estagio2: ['meu nome é', 'chamo-me', 'telefone é'],

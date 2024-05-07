@@ -60,14 +60,16 @@ class MewTwo {
     }
     //!Treinamento e aprendizaado
     async addTrainingData() {
-        if (this.repository) { // Verificando se repository está definido
-            let { intents, responses } = this.repository.getIntentsAndResponses();
-            for (const intent in intents) {
-                intents[intent].forEach(phrase => this.manager.addDocument('pt', phrase, intent));
-                responses[intent].forEach(response => this.manager.addAnswer('pt', intent, response));
+        try {
+            if (this.repository) { // Verificando se repository está definido
+                const { intents, responses } = await this.repository.getIntentsAndResponses();
+                for (const intent in intents) {
+                    intents[intent].forEach(phrase => this.manager.addDocument('pt', phrase, intent));
+                    responses[intent].forEach(response => this.manager.addAnswer('pt', intent, response));
+                }
             }
-        } else {
-            console.error("Repository não está definido.");
+        } catch (error) {
+            console.error("Erro ao obter intents e respostas:", error);
         }
     }
 
@@ -102,10 +104,10 @@ class MewTwo {
     async getResponseForIntent(intent) {
         if (this.repository) { // Verificando se repository está definido
             let { intents, responses } = await this.repository.getIntentsAndResponses();
-            return responses[intent] ? responses[intent][0] : "Desculpe, não entendi.";
+            //console.log(intents, responses)
+            return responses[intent] ? responses[intent][0] : "Mewtwo: Desculpe, não entendi.";
         } else {
             console.error("Repository não está definido.");
-            return "Mewtwo: Desculpe, não entendi.";
         }
     }
 
@@ -289,7 +291,7 @@ class MewTwo {
 // Exportação e Inicialização do MewTwo
 module.exports = MewTwo;
 const mewTwo = new MewTwo();
-//mewTwo.runChatbot();
+mewTwo.runChatbot();
 
 // mewTwo.trainWithCSVData().then(() => {
 //     mewTwo.runChatbot();

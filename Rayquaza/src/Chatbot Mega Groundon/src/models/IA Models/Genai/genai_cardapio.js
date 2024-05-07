@@ -77,7 +77,7 @@ class GenaiAssistente {
                 // 2
                 {
                     role: "user",
-                    parts: [{ text: "toda vez que o cliente falar com voce, de respostas objetivas e diretas que ajudem o cliente no seu pedido. Suas respostas sao de no maximo 2 linhas" }],
+                    parts: [{ text: "toda vez que o cliente falar com voce, de respostas objetivas, diretas e divertida com emojis que ajudem o cliente no seu pedido. Suas respostas sao de no maximo 20 palavras" }],
                 },
 
                 {
@@ -87,17 +87,17 @@ class GenaiAssistente {
 
                 // 3
 
-                // {
-                //     role: "user",
-                //     parts: [{ text: `Esse é são suas funcionalidades para o delivery ${this.widgets.menuPrincipal} ${this.widgets.menuPagamento} ${this.widgets.menuFinalizacao}` }],
+                {
+                    role: "user",
+                    parts: [{ text: `Esse é são suas funcionalidades para o delivery ${this.widgets.menuPrincipal} ${this.widgets.menuPagamento} ${this.widgets.menuFinalizacao}` }],
 
-                //     //parts: [{ text: `Esse é o seu guia de usuario! As frases mais comum dos clientes do robo e siga esse formato \n\n ${intents} - ${responses}` }],
-                // },
+                    //parts: [{ text: `Esse é o seu guia de usuario! As frases mais comum dos clientes do robo e siga esse formato \n\n ${intents} - ${responses}` }],
+                },
 
-                // {
-                //     role: "model",
-                //     parts: [{ text: "Entendido! Serei objetivo e divertido! " }],
-                // },
+                {
+                    role: "model",
+                    parts: [{ text: "Entendido! Serei objetivo, divertido e focado em vender! " }],
+                },
 
 
 
@@ -110,16 +110,21 @@ class GenaiAssistente {
         return chat;
 
     }
+    delay(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
 
     async sendMsg(chat, message) {
-
         const result = await chat.sendMessage(message);
-        const response = result.response;
-        if (response) {
+        if (result) {
+            const response = await result.response;
             return response.text();
+        } else {
+            await this.delay(2000); // Aguarda 2 segundo
+            return this.sendMsg(chat, message); // Chama recursivamente a função sendMsg
         }
-
     }
+
 
 }
 
