@@ -10,8 +10,9 @@ const repository = require("../nlp/mewtwo_data_train_repository")
 const Widgets = require("../../widgets/Widgets")
 
 const MODEL_NAME = "gemini-1.5-pro-latest";
-const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
+//const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
 
+const API_KEY = "AIzaSyDAPQnsTQxOL5HJ0zpjdYZKxbQ - ekmi3S0";
 
 class GenaiAssistente {
     constructor(api, model) {
@@ -115,18 +116,42 @@ class GenaiAssistente {
     }
 
     async sendMsg(chat, message) {
+
+
         const result = await chat.sendMessage(message);
+
+
         if (result) {
-            const response = await result.response;
-            return response.text();
-        } else {
-            await this.delay(2000); // Aguarda 2 segundo
+            try {
+                const response = await result.response;
+                return response.text();
+            } catch (error) {
+                console.error(error);
+
+                if (error instanceof GoogleGenerativeAIFetchError) {
+                    await this.delay(2000); // Aguarda 2 segundo
+                    return this.sendMsg(chat, message); // Chama recursivamente a função sendMsg
+                } else {
+                    throw error; // Lança o erro para ser tratado fora da função
+
+                }
+            }
+        }
+
+
+        else {
             return this.sendMsg(chat, message); // Chama recursivamente a função sendMsg
         }
+
     }
-
-
 }
+
+
+
+
+
+
+
 
 
 

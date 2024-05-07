@@ -1,0 +1,31 @@
+{
+    "id": 4827,
+    "nome_cliente": "Pedro",
+    "telefone": "5521999289987",
+    "endereco": "Não tem endereço",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Dinheiro",
+    "status": "Em Processo",
+    "total_pagar": 96,
+    "data_pedido": {
+        "data": "06/05/2024",
+        "hora": " 22:52:49"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Americano",
+            "preco": 24
+        },
+        {
+            "quantidade": 1,
+            "nome": "Bauru",
+            "preco": 42
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 30
+        }
+    ]
+}

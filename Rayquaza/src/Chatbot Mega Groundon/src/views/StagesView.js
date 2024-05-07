@@ -66,6 +66,23 @@ class StagesView extends GroundonView {
     }
 
 
+    async getTypeMessage(message) {
+        try {
+            console.log(`Tipo msg: ${message.mimetype}`)
+
+            if (message.isMedia === true || message.isMMS === true) {
+                const buffer = await this.whatsapp.decryptFile(message);
+                // At this point you can do whatever you want with the buffer
+                // Most likely you want to write it into a file
+                const fileName = `some-file-name.${mime.extension(message.mimetype)}`;
+                //fs.writeFileSync(fileName, buffer);
+                console.log(buffer)
+            }
+        } catch (error) {
+            console.log("Erro ao conseguir pegar o tipo de msg")
+        }
+    }
+
     async mewtwoProcessa(message) {
         try {
             // Processar a mensagem usando MewTwo
@@ -163,6 +180,7 @@ class StagesView extends GroundonView {
         const menu_formaPagamento = this.Widgets.menuPagamento;
         let ID_PEDIDO = ''
         let KYOGRE_LINK_ID = ''
+        let msgGemini = ""
 
 
         //!EVENTO DE ESPERAR MENSAGENS DO WHATSAPP
@@ -232,8 +250,11 @@ class StagesView extends GroundonView {
                 } else {
                     // ... [existing logic to process message with the standard chatbot]
 
-                    let msgGemini = await this.genaiResponde(numero_estagio, message) // ia generativa
+                    msgGemini = await this.genaiResponde(numero_estagio, message) // ia generativa
+                    await this.getTypeMessage(message)
 
+
+                    // Processa a entrada usando MewTwo
                     //! ===================== Estágio 1 - Apresentação =====================
                     if (numero_estagio === 1) {
                         console.log(`\n\n\nEstágio ${numero_estagio}:`, message.body);
@@ -318,10 +339,9 @@ class StagesView extends GroundonView {
 
                         // Mostra o menu principal
                         let menu_principal_text = this.Widgets.getMenuText('Menu Principal', menu_principal);
-                        this.enviarMensagem(message, menu_principal_text)
+                        //this.enviarMensagem(message, menu_principal_text)
+                        this.enviarMensagem(message, "O que posso te ajudar?")
 
-
-                        // this.enviarMensagem(message, `*${this.clientStates[phoneNumber].cliente.getNome()}*, agora temos uma nova funcionalidade de IA!\n\nDigite *!startIA* para conversar com o nosso modelo NLP!`)
 
                         this.clientStates[phoneNumber].stack.push(3);
                     }
@@ -329,14 +349,12 @@ class StagesView extends GroundonView {
                     //!=====================  Estágio 3 - Responde as funcionalidades do Botão =====================
                     else if (numero_estagio === 3) {
                         console.log(`\n\n\nEstágio ${numero_estagio}:`, message.body);
-
                         let cardapioEnviado = false;
 
 
                         //nlp functions
                         let intent_escolhida;
                         const selectedOption = this.Widgets.getSelectedOption(menu_principal, message.body);
-
                         if (selectedOption) {
                             intent_escolhida = selectedOption.button.text.slice(3);
                             await this.enviarMensagem(message, `Voce escolheu a opção *${intent_escolhida}*`)
@@ -344,28 +362,25 @@ class StagesView extends GroundonView {
                             intent_escolhida = this.getLastMessage(message)
                         }
 
+
                         const resposta_intent = await this.mewTwo.processIntent(intent_escolhida);
-                        //let cleanIntent, resposta = await this.mewtwoProcessa(message)
                         const cleanIntent = resposta_intent.intent.trim().replace(/"/g, '');
 
-                        try {
-                            const resposta = await this.mewTwo.getResponseForIntent(cleanIntent);
-                            await this.enviarMensagem(message, resposta)
-                        } catch (error) {
-                            console.log("erro ao mewtwo responder", error)
-                        }
+                        const resposta = await this.mewTwo.getResponseForIntent(cleanIntent);
+                        await this.enviarMensagem(message, `Mewtwo:${resposta}`)
 
                         // mandando cardapio
                         if (cleanIntent === 'pedido') {
-                            this.enviarMensagem(message, resposta);
 
                             cardapioEnviado = false
 
                             new Promise(async (resolve, reject) => {
+
                                 try {
                                     const result = await this.sendLinkCardapioDigital(message, KYOGRE_LINK_ID);
-                                    cardapioEnviado = true
                                     resolve(result);
+                                    cardapioEnviado = true
+
                                 }
                                 catch (error) {
                                     reject(error);
@@ -413,7 +428,6 @@ class StagesView extends GroundonView {
 
 
                         if (msgEnviadaKyogre == 'Pronto! fiz meu pedido!') {
-                            console.log(intentClienteCardapio)
                             if (pedido_escolhido_cardapio) {
                                 const PRODUTOS = pedido_escolhido_cardapio
                                 const CARRINHO = PRODUTOS['carrinho']
