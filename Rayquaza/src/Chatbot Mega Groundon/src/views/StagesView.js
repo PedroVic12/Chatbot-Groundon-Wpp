@@ -17,6 +17,10 @@ const cliente = new Cliente()
 
 
 
+//para pegar o audio
+const mime = require('mime-types');
+
+
 /*
 TODO 
 

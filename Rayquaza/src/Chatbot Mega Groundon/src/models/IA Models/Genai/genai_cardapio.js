@@ -20,7 +20,37 @@ class GenaiAssistente {
         this.MODEL_NAME = model
         this.repository = new repository()
         this.widgets = new Widgets()
+        this.cardapio = {
+            "cafe": {
+                "description": "Café preto",
+                "price": 2.5
+            },
+            "pao": {
+                "description": "Pão francês",
+                "price": 1.5
+            },
+            "misto": {
+                "description": "Misto quente",
+                "price": 3.5
+            },
+            "suco": {
+                "description": "Suco de laranja",
+                "price": 4.0
+            }
+        }
 
+    }
+
+    getCardapio() {
+        return this.cardapio;
+    }
+
+    getPreco(item) {
+        return this.cardapio[item].price;
+    }
+
+    getDescricao(item) {
+        return this.cardapio[item].description;
     }
 
     async runChatBot() {
@@ -67,7 +97,7 @@ class GenaiAssistente {
                 // 1
                 {
                     role: "user",
-                    parts: [{ text: `voce é um assistente pessoal de uma Lanchonete com nome de ${nomeLoja} onde voce como robo tem que atender os clientes de forma divertida e ajudando no acompanhamento do pedido junto com o cardapio digital` }],
+                    parts: [{ text: `voce é um assistente pessoal muito criativo, divertido e cheio de gírias cariocas  de uma Lanchonete com nome de ${nomeLoja} onde voce como robo tem que atender os clientes de forma divertida e ajudando no acompanhamento do pedido junto com o cardapio digital` }],
                 },
 
                 {
