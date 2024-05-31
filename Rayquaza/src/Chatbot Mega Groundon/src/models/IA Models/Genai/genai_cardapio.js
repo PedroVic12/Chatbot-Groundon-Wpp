@@ -190,6 +190,17 @@ async function main_gemini() {
 
     const model = new GenaiAssistente(API_KEY, MODEL_NAME)
     const chat = await model.runChatBot();
+
+    let custom = "🌞 Bom dia, Copacabana! 🌞  ";
+
+    // Nada melhor do que começar o dia com um dos nossos sucos fresquinhos, feitos com frutas selecionadas. 🍓🍍🥭
+
+    //📍 Desde 1977 na esquina da Rua Barata Ribeiro com a Rua Rodolfo Dantas.
+
+    //  #SucosCopaLima #Copacabana #SucosNaturais #FrutasFrescas""
+
+
+
     let mensagem = await model.sendMsg(chat, "Bom dia! tem promoção hoje?")
     console.log(mensagem);
 
