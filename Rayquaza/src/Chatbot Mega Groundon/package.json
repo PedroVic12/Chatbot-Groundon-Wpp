@@ -9,6 +9,7 @@
   "author": "pv peter parker",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.16.0",
     "@googlemaps/google-maps-services-js": "^3.3.38",
     "@wppconnect-team/wppconnect": "^1.27.3",
     "csv-parser": "^3.0.0",

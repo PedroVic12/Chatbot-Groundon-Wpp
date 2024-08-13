@@ -19,6 +19,13 @@
 [![WhatsApp Group](https://img.shields.io/badge/WhatsApp-Group-25D366?logo=whatsapp)](https://chat.whatsapp.com/LJaQu6ZyNvnBPNAVRbX00K)
 [![YouTube](https://img.shields.io/youtube/channel/subscribers/UCD7J9LG08PmGQrF5IS7Yv9A?label=YouTube)](https://www.youtube.com/c/wppconnect)
 
+
+### Top Contributors (last 45 days) widget
+---
+![Top Contributors (Last 45 days) widget](https://embeddables.devactivity.com/orgs/wppconnect-team/508ecbcd-e55e-4e31-a647-6674f134b5bf.svg)
+---
+<sup><sub>Check also our [Public Dashboard](https://app.devactivity.com/public/?organizationLogin=wppconnect-team) powered by [devActivity](https://devactivity.com/?ref=public_widget)</sub></sup>
+
 ## How does it work
 
 This project extract some functions of WhatsApp sources, that uses webpack.
@@ -39,6 +46,56 @@ There are a convection name for some exported modules:
 - `...Model` - Class for data structure (`ClassModel`, `MsgModel`)
 - `...Collection` - Class for collection of models (`ChatCollection`, `MsgCollection`)
 - `...Store` - Default and global instance of a collection (`ChatStore`, `MsgStore`)
+
+## Some Available functions
+### General Functions
+`WPP.conn.connect` - Connect to WhatsApp Web
+
+`WPP.conn.isAuthenticated` - Check if the connection is authenticated
+
+`WPP.conn.logout` - Logout from WhatsApp Web
+
+### Chat Functions
+`WPP.chat.sendTextMessage` - Send a text message
+
+`WPP.chat.sendImageMessage` - Send an image message
+
+`WPP.chat.sendVideoMessage` - Send a video message
+
+`WPP.chat.sendFileMessage` - Send a file message
+
+`WPP.chat.sendAudioMessage` - Send an audio message
+
+`WPP.chat.getChat` - Get chat details
+
+`WPP.chat.deleteMessage` - Delete a message
+
+### Contact Functions
+`WPP.contact.getContact` - Get contact details
+
+`WPP.contact.blockContact` - Block a contact
+
+`WPP.contact.unblockContact` - Unblock a contact
+
+`WPP.contact.getAllContacts` - Get all contacts
+
+### Group Functions
+`WPP.group.createGroup` - Create a new group
+
+`WPP.group.addParticipant` - Add a participant to a group
+
+`WPP.group.removeParticipant` - Remove a participant from a group.
+
+`WPP.group.promoteParticipant` - Promote a participant to admin
+
+`WPP.group.demoteParticipant` - Demote a participant from admin.
+
+`WPP.group.getGroupInfo` - Get group information.
+
+### Events
+`WPP.chat.on('chat.new_message')` - Event to dispatch on receive a new message
+
+To see all events, check: [https://wppconnect.io/wa-js/types/ev.EventTypes.html](https://wppconnect.io/wa-js/types/ev.EventTypes.html)
 
 ## Development
 
