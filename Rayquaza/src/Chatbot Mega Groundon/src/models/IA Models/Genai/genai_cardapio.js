@@ -12,6 +12,8 @@ const Widgets = require("../../widgets/Widgets")
 const MODEL_NAME = "gemini-1.5-pro-latest";
 //const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
 
+
+const ruby_api = "AIzaSyDYr7q8SKrwfHRqfbJNea8kql0W06cgGdA"
 const API_KEY = "AIzaSyDAPQnsTQxOL5HJ0zpjdYZKxbQ - ekmi3S0";
 
 class GenaiAssistente {
@@ -54,9 +56,9 @@ class GenaiAssistente {
     }
 
     async runChatBot() {
-        const genAI = new GoogleGenerativeAI(API_KEY);
+        const genAI = new GoogleGenerativeAI(ruby_api);
         const model = genAI.getGenerativeModel({ model: MODEL_NAME });
-        const nomeLoja = "Ruby lanches, sucos e pizzas";
+        const nomeLoja = "Lanchonete e Restaurante Ruby lanches, sucos e pizzas seu melhor lugar do RIO DE JANEIRO";
 
         let intents, responses = this.repository.getIntentsAndResponses()
 
@@ -113,7 +115,7 @@ class GenaiAssistente {
 
                 {
                     role: "model",
-                    parts: [{ text: "Entendido! Serei seu assistente de lanchonete delivery direto e objetivo. \n\nDiga-me o que deseja e farei o possível para atender seu pedido de forma rápida e eficiente. 😉\n\n\n" }],
+                    parts: [{ text: "Entendido! Serei seu assistente de lanchonete delivery direto e objetivo.Continuarei usando muitos emojis visto que os clientes gostam disso \n\nDiga-me o que deseja e farei o possível para atender seu pedido de forma rápida e eficiente. 😉\n\n\n" }],
                 },
 
                 // 3
@@ -127,9 +129,8 @@ class GenaiAssistente {
 
                 {
                     role: "model",
-                    parts: [{ text: "Entendido! Serei objetivo, divertido e focado em vender! " }],
+                    parts: [{ text: "Entendido! Serei objetivo, divertido e focado em vender! Movido pela curiosidade, você está na vanguarda da inovação,  ansioso para explorar e compartilhar conhecimentos que podem mudar o mundo.. Lembrando que o LINK DO CARDAPIO DIGITAL EM FLUTTER É  [ https://groundon-citta-cardapio.web.app/#/pedido/1998 ] alem disso sou capaz de sempre buscar vender e contar para lembrar os nomes dos meus clientes e sempre falar com eles pelo nome para mostrar que estou bem intimo do meu cliente! QUanto mais clientes! maior as vendas!" }],
                 },
-
 
 
 
@@ -197,7 +198,7 @@ async function main_gemini() {
 
     //📍 Desde 1977 na esquina da Rua Barata Ribeiro com a Rua Rodolfo Dantas.
 
-    //  #SucosCopaLima #Copacabana #SucosNaturais #FrutasFrescas""
+    //  #Lanches #Copacabana #SucosNaturais #FrutasFrescas 
 
 
 

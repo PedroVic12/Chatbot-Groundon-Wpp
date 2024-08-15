@@ -1,0 +1,31 @@
+{
+    "id": 7308,
+    "nome_cliente": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Rj",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Dinheiro",
+    "status": "Em Processo",
+    "total_pagar": 162,
+    "data_pedido": {
+        "data": "14/08/2024",
+        "hora": " 00:21:16"
+    },
+    "carrinho": [
+        {
+            "quantidade": 2,
+            "nome": "Americano",
+            "preco": 24
+        },
+        {
+            "quantidade": 2,
+            "nome": "Bauru",
+            "preco": 42
+        },
+        {
+            "quantidade": 1,
+            "nome": "Filé de Carne",
+            "preco": 30
+        }
+    ]
+}

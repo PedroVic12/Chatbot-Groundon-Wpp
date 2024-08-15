@@ -150,11 +150,13 @@ class StagesView extends GroundonView {
         try {
             const chat = await this.GENAI.runChatBot();
             let mensagemGemini = await this.GENAI.sendMsg(chat, `${message.body}`)
-            console.log(mensagemGemini);
+            
+            console.log("\nRobo IA Gemini: ",mensagemGemini);
+            return mensagemGemini;
 
-            if (num_stage > 2) {
-                return mensagemGemini;
-            }
+            //if (num_stage > 2) {
+            //    return mensagemGemini;
+            //}
         } catch (error) {
             console.error('Erro ao processar o gemini:', error);
 
@@ -164,7 +166,7 @@ class StagesView extends GroundonView {
 
     resetEstagio(message, num_stage, phone) {
 
-        if (message.body === "!") {
+        if (message.body === "!voltar") {
             const previousStage = num_stage - 2; // Get the previous stage from the stack
 
             if (previousStage) {
@@ -211,7 +213,7 @@ class StagesView extends GroundonView {
                     stack: [1] // Começa no estágio 1
                 };
             }
-            console.log('\n\n\n==================================================')
+            console.log('\n\n\n\n==================================================')
             console.log('Cliente Fazendo atendimento :\n', this.clientStates)
             console.log('==================================================\n\n\n')
 
@@ -265,7 +267,7 @@ class StagesView extends GroundonView {
                         console.log(typeof (message.body))
 
                         await this.delay(1000).then(
-                            this.enviarMensagem(message, `Bem-vindo a Lanchonete!\n🤖 Eu sou o Robô Groundon e estou aqui para ajudar seu atendimento.`)
+                            this.enviarMensagem(message, `Bem-vindo a Lanchonete!\n🤖 Eu sou o Robô Atendente Virtual *Groundon Bot* e estou aqui para levar seu atendimento a outro nivel.`)
                         )
                         this.clientStates[phoneNumber].stack.push(2);
                         await this.delay(3000).then(
@@ -339,7 +341,7 @@ class StagesView extends GroundonView {
                             await this.enviarMensagem(message, `✅ Prazer em te conhecer, ${this.clientStates[phoneNumber].cliente.getNome()}!`)
                         )
 
-                        this.enviarMensagem(message, `Seu numero de pedido é #${ID_PEDIDO}`)
+                        this.enviarMensagem(message, `🤖 Seu numero de pedido é #${ID_PEDIDO}`)
 
                         // Mostra o menu principal
                         let menu_principal_text = this.Widgets.getMenuText('Menu Principal', menu_principal);
@@ -356,6 +358,15 @@ class StagesView extends GroundonView {
                         let cardapioEnviado = false;
 
 
+
+                        //mensagem marketing
+                        //this.enviarMensagem(message, `Nada melhor do que começar o dia com um dos nossos sucos fresquinhos, feitos com frutas selecionadas. 🍓🍍🥭
+                        //                            \nDesde 1977 na esquina da Rua Barata Ribeiro com a Rua Rodolfo Dantas.
+                        //                             \n#Lanches #Copacabana #SucosNaturais #FrutasFrescas 
+                        //    `);
+
+
+
                         //nlp functions
                         let intent_escolhida;
                         const selectedOption = this.Widgets.getSelectedOption(menu_principal, message.body);
@@ -367,11 +378,13 @@ class StagesView extends GroundonView {
                         }
 
 
+                        // MOdelo NLP Mewtwo
                         const resposta_intent = await this.mewTwo.processIntent(intent_escolhida);
                         const cleanIntent = resposta_intent.intent.trim().replace(/"/g, '');
 
                         const resposta = await this.mewTwo.getResponseForIntent(cleanIntent);
-                        await this.enviarMensagem(message, `Mewtwo:${resposta}`)
+                        console.log(`Mewtwo intent NLP: ${resposta}`)
+                        //await this.enviarMensagem(message, `Mewtwo: ${resposta}`)
 
                         // mandando cardapio
                         if (cleanIntent === 'pedido') {
@@ -379,7 +392,7 @@ class StagesView extends GroundonView {
                             cardapioEnviado = false
 
                             new Promise(async (resolve, reject) => {
-
+                                this.enviarMensagem(message, resposta)
                                 try {
                                     const result = await this.sendLinkCardapioDigital(message, KYOGRE_LINK_ID);
                                     resolve(result);
@@ -421,6 +434,7 @@ class StagesView extends GroundonView {
                         let msgEnviadaKyogre = this.getLastMessage(message)
                         let intentClienteCardapio = await this.mewTwo.processIntent(msgEnviadaKyogre)
 
+                        await this.enviarMensagem(message, msgGemini)
 
                         // Pega os dados do cliente do Kyogre
                         const pedido_escolhido_cardapio = await this.backendController.getDadosPedidosKyogre(ID_PEDIDO)
