@@ -6,8 +6,8 @@ const {
     HarmCategory,
     HarmBlockThreshold,
 } = require("@google/generative-ai");
-const repository = require("../nlp/mewtwo_data_train_repository")
-const Widgets = require("../../widgets/Widgets")
+const repository = require("../../Rayquaza/src/Chatbot Mega Groundon/src/models/IA Models/nlp/mewtwo_data_train_repository")
+const Widgets = require("../../Rayquaza/src/Chatbot Mega Groundon/src/models/widgets/Widgets")
 
 const MODEL_NAME = "gemini-1.5-pro-latest";
 //const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
