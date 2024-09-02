@@ -1,4 +1,3 @@
-const venom = require('venom-bot');
 const wppconnect = require('@wppconnect-team/wppconnect');
 
 

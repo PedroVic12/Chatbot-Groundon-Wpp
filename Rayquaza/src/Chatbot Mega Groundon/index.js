@@ -50,7 +50,7 @@ async function startStagesView(groundonController, backendController) {
 	try {
 		await stagesView.start_chatbot_Groundon();
 		await groundonController.delay(3000).then(
-			console.log('\nChatbot Groundon iniciado no zap zap')
+			console.log('\n\nChatbot Groundon iniciado no zap zap')
 		);
 		return true;
 	} catch (error) {
