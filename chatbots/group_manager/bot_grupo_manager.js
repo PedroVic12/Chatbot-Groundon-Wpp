@@ -1,65 +1,70 @@
-class ContactManager {
-    constructor() {
-        // Assumindo que o WPPConnect está configurado globalmente
-    }
-
-    async addContact(name, phone) {
-        try {
-            // Adiciona o contato (ou apenas armazena informações se a API não suportar adicionar contatos diretamente)
-            await WPP.contact.addContact(name, phone);
-            console.log(`Contato ${name} adicionado com sucesso.`);
-        } catch (error) {
-            console.error(`Erro ao adicionar contato: ${error.message}`);
-        }
-    }
-
-    async getContact(phone) {
-        try {
-            const contact = await WPP.contact.getContact(phone);
-            return contact;
-        } catch (error) {
-            console.error(`Erro ao obter contato: ${error.message}`);
-        }
-    }
-}
+const wppconnect = require('@wppconnect-team/wppconnect');
 
 class GroupManager {
-    constructor() {
-        // Assumindo que o WPPConnect está configurado globalmente
-        this.adminPhone = '1234567890'; // Seu número de telefone para controle
+    constructor(wpp) {
+        this.WPP = wpp;
+        this.adminPhone = '552199289987@c.us'; // Seu número de telefone para controle (inclua o sufixo @c.us)
     }
 
-    async createGroup(groupName) {
+    async groupExists(groupName) {
         try {
-            const group = await WPP.group.createGroup(groupName);
-            console.log(`Grupo ${groupName} criado com sucesso.`);
-            return group;
+            // Obtém todos os grupos
+            const groups = await this.WPP.group.list();
+
+            // Verifica se algum grupo possui o nome desejado
+            return groups.some(group => group.name === groupName);
         } catch (error) {
-            console.error(`Erro ao criar grupo: ${error.message}`);
+            console.error(`Erro ao verificar a existência do grupo: ${error.message}`);
+            return false;
         }
     }
 
-    async addParticipant(groupId, phone) {
+    async createGroup(groupName, participants, parentGroup) {
         try {
-            await WPP.group.addParticipant(groupId, phone);
-            console.log(`Participante ${phone} adicionado ao grupo ${groupId}.`);
+            // Verifica se o grupo já existe
+            if (await this.groupExists(groupName)) {
+                console.log(`O grupo "${groupName}" já existe.`);
+                return;
+            }
+
+            // Criação do grupo
+            const result = await this.WPP.createGroup(groupName, participants, parentGroup);
+
+            console.log('\nGrupo criado com sucesso"');
+            console.log(`ID do grupo: ${result.gid.toString()}`);
+
+            // Informações dos participantes
+            for (const [phone, participantInfo] of Object.entries(result.participants)) {
+                console.log(`\nParticipante ${phone}:`);
+                //console.log(`Código: ${participantInfo.code}`);
+                console.log(`Código de convite: ${participantInfo.invite_code}`);
+                console.log(`Código de convite expiração: ${participantInfo.invite_code_exp}`);
+                console.log(`ID: ${participantInfo.wid}`);
+            }
+
+            return result;
         } catch (error) {
-            console.error(`Erro ao adicionar participante: ${error.message}`);
+            console.error(`Erro ao criar grupo: ${error.message}`);
         }
     }
 
     async setPermissions(groupId) {
         try {
             // Promove o seu número para admin
-            await WPP.group.promoteParticipant(groupId, this.adminPhone);
+            await this.WPP.group.promoteParticipant(groupId, this.adminPhone);
 
             // Demote todos os outros participantes para que apenas admins possam enviar mensagens
-            const participants = await WPP.group.getGroupInfo(groupId);
-            for (const participant of participants) {
-                if (participant.phone !== this.adminPhone) {
-                    await WPP.group.demoteParticipant(groupId, participant.phone);
+            const groupInfo = await this.WPP.group.getGroupInfo(groupId);
+            for (const participant of groupInfo.participants) {
+                if (participant.id !== this.adminPhone) {
+                    await this.WPP.group.demoteParticipant(groupId, participant.id);
                 }
             }
+
+            // Configura o grupo para que apenas admins possam enviar mensagens
+            await this.WPP.group.setGroupSettings(groupId, {
+                sendMessages: 'admins' // Apenas admins podem enviar mensagens
+            });
 
             console.log(`Permissões configuradas para o grupo ${groupId}. Somente admins podem enviar mensagens.`);
         } catch (error) {
@@ -70,18 +75,40 @@ class GroupManager {
 
 // Exemplo de uso
 (async () => {
-    const contactManager = new ContactManager();
-    const groupManager = new GroupManager();
+    try {
+        const client = await wppconnect.create({
+            tokenStore: 'file',
+            folderNameToken: 'tokens',
+            session: 'grupo_manager' // Nome da sessão
+        });
+        if (client) {
+            console.log('\nConectado ao WhatsApp com sucesso! :) \n');
+            resolve(true);
+        } else {
+            console.log(`Debug ${client}`);
+            reject(new Error("WhatsApp connection failed."));
+        }
+        const groupManager = new GroupManager(client);
 
-    // 1. Adicionar contato
-    await contactManager.addContact('John Doe', '9876543210');
+        // Criar grupo com participantes
+        const participants = ['552199289987@c.us', '5521997091499@c.us'];
+        const groupResult = await groupManager.createGroup('Test Group', '552199289987@c.us');
+        
+        if (groupResult) {
+            // Extrair informações do grupo
+            const groupId = groupResult.gid.toString();
+            const inviteCode = Object.values(groupResult.participants)[0].invite_code;
 
-    // 2. Criar grupo
-    const group = await groupManager.createGroup('My Group');
+            console.log(`Código do convite: ${inviteCode}`);
 
-    // 3. Adicionar participante ao grupo
-    await groupManager.addParticipant(group.id, '9876543210');
+            // Enviar link de convite
+            const inviteLink = 'https://chat.whatsapp.com/' + inviteCode;
+            console.log(`Link de convite: ${inviteLink}`);
 
-    // 4. Configurar permissões no grupo
-    await groupManager.setPermissions(group.id);
+            // Configurar permissões
+            await groupManager.setPermissions(groupId);
+        }
+    } catch (error) {
+        console.error('Erro ao executar o script:', error);
+    }
 })();

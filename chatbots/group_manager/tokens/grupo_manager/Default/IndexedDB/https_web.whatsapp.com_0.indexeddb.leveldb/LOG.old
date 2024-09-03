@@ -1,0 +1,16 @@
+2024/09/02-19:18:15.364 2cec0 Reusing MANIFEST /home/pedrov12/Documentos/GitHub/Chatbot-Groundon-Wpp/chatbots/group_manager/tokens/grupo_manager/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/09/02-19:18:15.365 2cec0 Recovering log #105
+2024/09/02-19:18:15.372 2cec0 Reusing old log /home/pedrov12/Documentos/GitHub/Chatbot-Groundon-Wpp/chatbots/group_manager/tokens/grupo_manager/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000105.log 
+2024/09/02-19:18:16.794 2ceca Manual compaction at level-0 from '\x00)\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00*\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/09/02-19:18:16.810 2cecb Level-0 table #111: started
+2024/09/02-19:18:16.840 2cecb Level-0 table #111: 186417 bytes OK
+2024/09/02-19:18:16.865 2cecb Delete type=0 #105
+2024/09/02-19:18:16.865 2cec0 Manual compaction at level-0 from '\x00*\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00+\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/09/02-19:18:18.457 2cec1 Compacting 1@1 + 2@2 files
+2024/09/02-19:18:18.544 2cec1 Generated table #112@1: 49669 keys, 2204384 bytes
+2024/09/02-19:18:18.569 2cec1 Generated table #113@1: 19479 keys, 378935 bytes
+2024/09/02-19:18:18.569 2cec1 Compacted 1@1 + 2@2 files => 2583319 bytes
+2024/09/02-19:18:18.584 2cec1 compacted to: files[ 0 0 2 0 0 0 0 ]
+2024/09/02-19:18:18.584 2cec1 Delete type=2 #107
+2024/09/02-19:18:18.585 2cec1 Delete type=2 #108
+2024/09/02-19:18:18.585 2cec1 Delete type=2 #111
