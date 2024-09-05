@@ -1,4 +1,5 @@
 const wppconnect = require('@wppconnect-team/wppconnect');
+const { cli } = require('winston/lib/winston/config');
 
 class GroupManager {
     constructor(wpp) {
@@ -88,26 +89,36 @@ class GroupManager {
             console.log(`Debug ${client}`);
             reject(new Error("WhatsApp connection failed."));
         }
+
+        // admin so manda mensagem
+        wppconnect.Whatsapp.setMessagesAdminsOnly(chatId, option);
+
+ 
+
         const groupManager = new GroupManager(client);
 
         // Criar grupo com participantes
         const participants = ['552199289987@c.us', '5521997091499@c.us'];
-        const groupResult = await groupManager.createGroup('Test Group', '552199289987@c.us');
-        
-        if (groupResult) {
-            // Extrair informações do grupo
-            const groupId = groupResult.gid.toString();
-            const inviteCode = Object.values(groupResult.participants)[0].invite_code;
+        // const groupResult = await groupManager.createGroup('Test Group', '552199289987@c.us');
 
-            console.log(`Código do convite: ${inviteCode}`);
 
-            // Enviar link de convite
-            const inviteLink = 'https://chat.whatsapp.com/' + inviteCode;
-            console.log(`Link de convite: ${inviteLink}`);
+        // Create group (title, participants to add)
+        await client.createGroup('Group name', participants);
 
-            // Configurar permissões
-            await groupManager.setPermissions(groupId);
-        }
+        // if (groupResult) {
+        //     // Extrair informações do grupo
+        //     const groupId = groupResult.gid.toString();
+        //     const inviteCode = Object.values(groupResult.participants)[0].invite_code;
+
+        //     console.log(`Código do convite: ${inviteCode}`);
+
+        //     // Enviar link de convite
+        //     const inviteLink = 'https://chat.whatsapp.com/' + inviteCode;
+        //     console.log(`Link de convite: ${inviteLink}`);
+
+        //     // Configurar permissões
+        //     await groupManager.setPermissions(groupId);
+        // }
     } catch (error) {
         console.error('Erro ao executar o script:', error);
     }

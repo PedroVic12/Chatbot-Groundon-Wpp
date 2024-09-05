@@ -149,9 +149,21 @@ class StagesView extends GroundonView {
     async genaiResponde(num_stage, message) {
         try {
             const chat = await this.GENAI.runChatBot();
-            let mensagemGemini = await this.GENAI.sendMsg(chat, `${message.body}`)
-            
-            console.log("\nRobo IA Gemini: ",mensagemGemini);
+
+
+            if (num_stage == 1){
+
+                let mensagemGemini = await this.GENAI.sendMsg(chat, `Olá! é do robo delivery? ${message.body}`)
+                console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+            } else if (num_stage == 2){
+                let mensagemGemini = await this.GENAI.sendMsg(chat, `Meu Nome é: ${message.body}, sempre me chame pelo nome!`)
+                console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+            } else {
+                let mensagemGemini = await this.GENAI.sendMsg(chat, `${message.body}`)
+                console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+
+            }
+
             return mensagemGemini;
 
             //if (num_stage > 2) {
@@ -255,8 +267,10 @@ class StagesView extends GroundonView {
 
                 } else {
                     // ... [existing logic to process message with the standard chatbot]
-
-                    msgGemini = await this.genaiResponde(numero_estagio, message) // ia generativa
+                    
+                    
+                    // ia generativa
+                    msgGemini = await this.genaiResponde(numero_estagio, message) 
                     await this.getTypeMessage(message)
 
 
