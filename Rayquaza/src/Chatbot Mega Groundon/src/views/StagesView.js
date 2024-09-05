@@ -155,16 +155,20 @@ class StagesView extends GroundonView {
 
                 let mensagemGemini = await this.GENAI.sendMsg(chat, `Olá! é do robo delivery? ${message.body}`)
                 console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+                return mensagemGemini;
             } else if (num_stage == 2){
                 let mensagemGemini = await this.GENAI.sendMsg(chat, `Meu Nome é: ${message.body}, sempre me chame pelo nome!`)
+             
                 console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+                return mensagemGemini;
             } else {
                 let mensagemGemini = await this.GENAI.sendMsg(chat, `${message.body}`)
                 console.log("\n\nRobo IA Gemini: ",mensagemGemini);
+                return mensagemGemini;
 
             }
 
-            return mensagemGemini;
+        
 
             //if (num_stage > 2) {
             //    return mensagemGemini;
