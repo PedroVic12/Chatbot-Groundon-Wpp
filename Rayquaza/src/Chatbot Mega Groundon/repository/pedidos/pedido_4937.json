@@ -1,0 +1,31 @@
+{
+    "id": 4937,
+    "nome_cliente": "Pv",
+    "telefone": "5521999289987",
+    "endereco": "Niterói",
+    "complemento": "Sem Complemento.",
+    "forma_pagamento": "Cartão",
+    "status": "Em Processo",
+    "total_pagar": 63,
+    "data_pedido": {
+        "data": "06/09/2024",
+        "hora": " 14:59:56"
+    },
+    "carrinho": [
+        {
+            "quantidade": 1,
+            "nome": "Filé de Frango",
+            "preco": 27
+        },
+        {
+            "quantidade": 1,
+            "nome": "CheeseBacon",
+            "preco": 19
+        },
+        {
+            "quantidade": 1,
+            "nome": "CheeseBurguer",
+            "preco": 17
+        }
+    ]
+}
