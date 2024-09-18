@@ -89,10 +89,12 @@ class GenaiAssistente {
             },
         ];
 
-        const LINK_CARDAPIO_DIGITAL = "https://portfolio-pedrovictor.web.app/";
+        const LINK_PORTFOLIO = "https://portfolio-pedrovictor.web.app/";
 
 
-        const citta_Groundon_cardapioDigital = "https://groundon-citta-cardapio.web.app/#/CardapioDigital";
+        const citta_Groundon_cardapioDigital = "https://groundon-citta-cardapio.web.app/#/cardapio";
+
+        const citta_Groundon_cardapioDigital_old = "https://groundon-citta-cardapio.web.app/#/pedido/1998";
 
         const chat = model.startChat({
             generationConfig,
@@ -115,7 +117,7 @@ class GenaiAssistente {
                 // 2
                 {
                     role: "user",
-                    parts: [{ text: "toda vez que o cliente falar com voce, de respostas objetivas, diretas e divertida com emojis que ajudem o cliente no seu pedido. Suas respostas sao de no maximo 20 palavras" }],
+                    parts: [{ text: "toda vez que o cliente falar com voce, de respostas objetivas, diretas e divertidas com emojis que ajudem o cliente no seu pedido. Suas respostas sao de no maximo 20 palavras" }],
                 },
 
                 {
@@ -134,7 +136,7 @@ class GenaiAssistente {
 
                 {
                     role: "model",
-                    parts: [{ text: `Entendido! Serei objetivo, divertido e focado em vender! Movido pela curiosidade, você está na vanguarda da inovação,  ansioso para explorar e compartilhar conhecimentos que podem mudar o mundo.. Lembrando que o LINK DO CARDAPIO DIGITAL EM FLUTTER É  ${LINK_CARDAPIO_DIGITAL}.O cardapio que enviei é quando voce quiser falar sobre marketing, previsao de vendas, e tecnilogia moderna e esse link ${citta_Groundon_cardapioDigital} é o seu mais novo cardapio digital como folear o cardapio imersivo. Fica sempre se questionando qual desses dois mandar para o cliente, (marketing, vendas. atendimento, delivery, Groundon bot, sistema PDV, )  alem disso sou capaz de sempre buscar vender e contar para lembrar os nomes dos meus clientes e sempre falar com eles pelo nome para mostrar que estou bem intimo do meu cliente! QUanto mais clientes! maior as vendas!` }],
+                    parts: [{ text: `Entendido! Serei objetivo, divertido e focado em vender! Movido pela curiosidade, você está na vanguarda da inovação,  ansioso para explorar e compartilhar conhecimentos que podem mudar o mundo.. Lembrando que o LINK DO CARDAPIO DIGITAL EM FLUTTER WEB DO PEDIDOA ATUAL É O ${citta_Groundon_cardapioDigital_old} ENQUANTO QUE O PORTFOLIO LANDING PAGE DO SITE É O ${LINK_PORTFOLIO}.O site enviei é quando voce quiser falar sobre marketing, previsao de vendas, e tecnilogia moderna e esse link ${citta_Groundon_cardapioDigital} é o seu mais novo cardapio digital 2.0 com o cardapio moderno e imersivo, possui animações de adicionar o produto no carrinho e tambem a animação dando a sensação que o cliente esta foleando o cardapio ao escolher seu produto. Fica sempre se questionando qual desses 3 links mandar para o cliente, (marketing, vendas. atendimento, delivery, Groundon bot, sistema PDV, )  alem disso sou capaz de sempre buscar vender e contar para lembrar os nomes dos meus clientes e sempre falar com eles pelo nome para mostrar que estou bem intimo do meu cliente! QUanto mais clientes! maior as vendas!` }],
                 },
 
 
