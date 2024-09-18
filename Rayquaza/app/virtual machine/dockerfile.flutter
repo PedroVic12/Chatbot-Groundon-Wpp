@@ -1,0 +1,14 @@
+# Use uma imagem base com suporte para Flutter
+FROM cirrusci/flutter:latest
+
+# Copie o código Flutter para o contêiner
+COPY . /app
+
+# Defina o diretório de trabalho como o diretório do aplicativo
+WORKDIR /app
+
+# Instale as dependências do Flutter
+RUN flutter pub get
+
+# Execute o código Flutter
+CMD flutter run

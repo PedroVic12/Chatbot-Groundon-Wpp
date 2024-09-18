@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Script Launcher</title>
+    <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .running {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .terminals {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        .terminal-container {
+            flex: 1;
+            margin: 0 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Script Launcher</h1>
+    <div class="buttons">
+        <button id="chatbotWpp" class="button">Ligar Chatbot WPP</button>
+        <button id="wppServidor" class="button">Ligar WPP Servidor</button>
+        <button id="thirdScript" class="button">Ligar Terceiro Script</button>
+    </div>
+    <div class="terminals">
+        <div id="terminal-chatbotWpp" class="terminal-container"></div>
+        <div id="terminal-wppServidor" class="terminal-container"></div>
+        <div id="terminal-thirdScript" class="terminal-container"></div>
+    </div>
+
+    <script src="node_modules/xterm/lib/xterm.js"></script>
+    <script src="node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

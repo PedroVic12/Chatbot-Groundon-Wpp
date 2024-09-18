@@ -1,0 +1,14 @@
+# Use uma imagem base com suporte para Python
+FROM python:latest
+
+# Copie o código Python para o contêiner
+COPY . /app
+
+# Defina o diretório de trabalho como o diretório do aplicativo
+WORKDIR /app
+
+# Instale as dependências do Python
+RUN pip install -r requirements.txt
+
+# Execute o código Python
+CMD python your_script.py

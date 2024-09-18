@@ -1,0 +1,14 @@
+# Use uma imagem base com suporte para Node.js
+FROM node:latest
+
+# Copie o código Node.js para o contêiner
+COPY . /app
+
+# Defina o diretório de trabalho como o diretório do aplicativo
+WORKDIR /app
+
+# Instale as dependências do Node.js
+RUN npm install
+
+# Execute o código Node.js
+CMD node your_script.js
