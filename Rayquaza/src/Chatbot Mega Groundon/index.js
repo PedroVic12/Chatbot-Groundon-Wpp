@@ -30,6 +30,11 @@ async function initializeBackend(backendController) {
 
 
 
+async function load_api_key(){
+
+	//como usar o .env no codigo em js
+	
+}
 
 
 
@@ -37,7 +42,7 @@ async function initializeBackend(backendController) {
 
 async function startStagesView(groundonController, backendController) {
 	const MODEL_NAME = "gemini-1.5-pro-latest";
-	const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
+	const API_KEY = "AIzaSyA3ctzffJlI_aoBHatdt0tIxWIjP2_PIAs";
 	const model = new GenaiAssistente(API_KEY, MODEL_NAME)
 
 	const stagesView = new StagesView(
