@@ -3,6 +3,10 @@ const BackendController = require('./src/controllers/BackendController');
 const StagesView = require('./src/views/StagesView');
 const GenaiAssistente = require("./src/models/IA Models/Genai/genai_cardapio")
 
+// Carregar variáveis de ambiente do arquivo .env
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 //novo numero groundon -> 988377364
 
@@ -29,20 +33,26 @@ async function initializeBackend(backendController) {
 
 
 
+async function load_api_key() {
 
-async function load_api_key(){
-
-	//como usar o .env no codigo em js
-	
+    
+    // Recuperar a chave da API de forma segura
+    const apiKey = process.env.GOOGLE_API_KEY;
+    
+	if (!apiKey) {
+        throw new Error('Chave de API do Google não encontrada. Verifique o arquivo .env');
+    } else {
+		console.log("API Gemini 2.0 configurada! ")
+	}
+    
+    return apiKey;
 }
 
 
 
-
-
 async function startStagesView(groundonController, backendController) {
-	const MODEL_NAME = "gemini-1.5-pro-latest";
-	const API_KEY = "AIzaSyA3ctzffJlI_aoBHatdt0tIxWIjP2_PIAs";
+	const MODEL_NAME = "gemini-2.0-flash"
+	const API_KEY = load_api_key()
 	const model = new GenaiAssistente(API_KEY, MODEL_NAME)
 
 	const stagesView = new StagesView(

@@ -9,12 +9,13 @@ const {
 const repository = require("../nlp/mewtwo_data_train_repository")
 const Widgets = require("../../widgets/Widgets")
 
-const MODEL_NAME = "gemini-1.5-pro-latest";
-//const API_KEY = "AIzaSyDaVlWCey5Z_X3r6l4Kjo3Keo6kTK6S_XY";
+const MODEL_NAME = "gemini-2.0-flash"
+const GOOGLE_API_KEY = "AIzaSyBIm9wJUDAnG1zjuX4tg_gCtMSAF1ADZiw";
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 
-const ruby_api = "AIzaSyDYr7q8SKrwfHRqfbJNea8kql0W06cgGdA"
-const API_KEY = "AIzaSyDAPQnsTQxOL5HJ0zpjdYZKxbQ - ekmi3S0";
 
 class GenaiAssistente {
     constructor(api, model) {
@@ -38,8 +39,20 @@ class GenaiAssistente {
             "suco": {
                 "description": "Suco de laranja",
                 "price": 4.0
+            },
+            "pizza": {
+                "description": "Pizza Margherita",
+                "price": 25.0
+            },
+            "hamburguer": {
+                "description": "Hambúrguer artesanal",
+                "price": 15.0
+            },
+            "promo": {
+                "description": "Promoção: 2 sucos por 7 reais!",
+                "price": 7.0
             }
-        }
+        };
 
     }
 
@@ -56,7 +69,7 @@ class GenaiAssistente {
     }
 
     async runChatBot() {
-        const genAI = new GoogleGenerativeAI(ruby_api);
+        const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
         const model = genAI.getGenerativeModel({ model: MODEL_NAME });
         const nomeLoja = "Lanchonete e Restaurante Ruby lanches, sucos e pizzas seu melhor lugar do RIO DE JANEIRO";
 
@@ -90,7 +103,6 @@ class GenaiAssistente {
         ];
 
         const LINK_PORTFOLIO = "https://portfolio-pedrovictor.web.app/";
-
 
         const citta_Groundon_cardapioDigital = "https://groundon-citta-cardapio.web.app/#/cardapio";
 
@@ -182,12 +194,20 @@ class GenaiAssistente {
         }
 
     }
+
+
+
+    async  simularPedido(chat) {
+        let itemEscolhido = await this.sendMsg(chat, "Gostaria de um café, pão, misto, suco, pizza, hamburguer !");
+        console.log(itemEscolhido);
+
+        let confirmacao = await this.sendMsg(chat, `Na verdade achei muito caro, pode retirar a pizza. Pode confirmar o pedido?`);
+        console.log(confirmacao);
+
+        let informacoesAdicionais = await this.sendMsg(chat, "eu quero uma sugestão da casa para pedir para minha namorada");
+        console.log(informacoesAdicionais);
+    }
 }
-
-
-
-
-
 
 
 
@@ -196,7 +216,7 @@ class GenaiAssistente {
 async function main_gemini() {
 
 
-    const model = new GenaiAssistente(API_KEY, MODEL_NAME)
+    const model = new GenaiAssistente(GOOGLE_API_KEY, MODEL_NAME)
     const chat = await model.runChatBot();
 
     let custom = "🌞 Bom dia, Copacabana! 🌞  ";
@@ -213,7 +233,12 @@ async function main_gemini() {
     console.log(mensagem);
 
 
+    await model.simularPedido(chat);
+
+
 }
+
+
 //main_gemini()
 
 module.exports = GenaiAssistente;
