@@ -1,7 +1,7 @@
 const GroundonController = require('./src/controllers/GroundonController');
 const BackendController = require('./src/controllers/BackendController');
 const StagesView = require('./src/views/StagesView');
-const GenaiAssistente = require("./src/models/IA Models/Genai/genai_cardapio")
+const GenaiAssistente = require("./src/models/IA Models/Genai/genai_assistente_2025")
 
 // Carregar variáveis de ambiente do arquivo .env
 const dotenv = require('dotenv');

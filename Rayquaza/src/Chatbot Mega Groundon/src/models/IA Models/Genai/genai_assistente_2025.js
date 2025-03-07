@@ -9,7 +9,7 @@ const {
 const repository = require("../nlp/mewtwo_data_train_repository")
 const Widgets = require("../../widgets/Widgets")
 
-const MODEL_NAME = "gemini-2.0-flash"
+const MODEL_NAME = "gemini-2.0-flash-thinking-exp-01-21" // @param ["gemini-1.5-flash-latest","gemini-2.0-flash-lite","gemini-2.0-flash","gemini-2.0-pro-exp-02-05","gemini-2.0-flash-thinking-exp-01-21"] {"allow-input":true}
 const GOOGLE_API_KEY = "AIzaSyBIm9wJUDAnG1zjuX4tg_gCtMSAF1ADZiw";
 const dotenv = require('dotenv');
 
