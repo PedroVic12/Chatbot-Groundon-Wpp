@@ -108,6 +108,15 @@ class GenaiAssistente {
 
         const citta_Groundon_cardapioDigital_old = "https://groundon-citta-cardapio.web.app/#/pedido/1998";
 
+
+        const variables =  {
+            "number": "5521999289987",
+            "nomeLoja": "Lanchonete e Restaurante Ruby lanches, sucos e pizzas seu melhor lugar do RIO DE JANEIRO",
+            "LINK_CARDAPIO": "https://kyogre-ruby-delivery-pdv-react.vercel.app/cardapio",
+            "LINK_PORTFOLIO": "https://portfolio-pedrovictor.web.app"
+          }
+          
+
         const chat = model.startChat({
             generationConfig,
             safetySettings,
